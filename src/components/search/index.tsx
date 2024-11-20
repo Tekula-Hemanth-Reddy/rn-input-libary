@@ -1,7 +1,6 @@
 import React from "react";
 import {
     Keyboard,
-    StyleSheet,
     TextInput,
     TouchableOpacity
 } from "react-native";
@@ -11,6 +10,7 @@ import { RnButton } from "../button";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
 import { InnSearchComponentProps } from "../../types";
+import { rnStyles } from "src/config/rn-styles";
 
 interface InnSearchComponentState {
     showCancel: boolean;
@@ -135,7 +135,7 @@ export default class InnSearchComponent extends React.Component<
             <RnButton transparent onPress={() => this.onCrossIconPress()
             } icon={
                 <RnIcon
-                    // style={styles.crossIcon}
+                    // style={rnStyles.crossIcon}
                     // active
 
                     name="close"
@@ -177,11 +177,11 @@ export default class InnSearchComponent extends React.Component<
 
     render() {
         return (
-            //  <Header style={styles.searchBarHeader}>
-            <RnView style={styles.searchBarHeader} >
+            //  <Header style={rnStyles.searchBarHeader}>
+            <RnView style={rnStyles.searchBarHeader} >
                 <TouchableOpacity
                     // regular
-                    style={[styles.search, this.textInput?.isFocused() ? styles.boxShadow : {}]}
+                    style={[rnStyles.search, this.textInput?.isFocused() ? rnStyles.searchBoxShadow : {}]}
                     onPress={this.handleSearchPress.bind(this)}
                 >
                     {this.searchIconRenderer()}
@@ -207,37 +207,3 @@ export default class InnSearchComponent extends React.Component<
         );
     }
 }
-
-const styles = StyleSheet.create({
-    searchBarHeader: {
-        backgroundColor: "transparent",
-        height: rnConstants.INPUT_HEIGHT,
-        flexDirection: "row",
-        paddingHorizontal: 0,
-        // paddingVertical: metrics.scale(4),
-    },
-    search: {
-        flex: 1,
-        alignItems: "center",
-        borderRadius: 8,
-        flexDirection: 'row',
-        height: rnConstants.INPUT_HEIGHT,
-        borderWidth: 1,
-        borderColor: rnConstants.BORDER_COLOR,
-        backgroundColor: rnConstants.WHITE_COLOR,
-        paddingHorizontal: rnConstants.DEFAULT_PADDING
-    },
-    boxShadow: {
-        shadowColor: 'rgba(0, 0, 0, 0.1)',
-        shadowOffset: { width: 0, height: 1 },
-        shadowOpacity: 1,
-        shadowRadius: 2,
-    },
-    crossIcon: {
-        opacity: 0.2,
-    },
-    searchIcon: {
-        // opacity: 0.
-        // color: cssConstants.SEARCH_ICON,
-    },
-});

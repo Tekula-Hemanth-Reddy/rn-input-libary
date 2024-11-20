@@ -2,13 +2,11 @@ import { Feather } from '@expo/vector-icons';
 import * as React from "react";
 import {
   NativeSyntheticEvent,
-  Platform,
-  StyleSheet,
   TextInput,
   TextInputFocusEventData
 } from "react-native";
 import rnConstants from "../../config/rn-constants";
-import { formStyles } from '../../config/rn-styles';
+import { rnStyles } from '../../config/rn-styles';
 import { RnIcon } from '../icon';
 import { RnView } from '../view';
 import { RnText } from '../text';
@@ -87,9 +85,9 @@ class RnInput extends React.Component<RnInputProps, State> {
 
     return (
       <>
-        <RnView style={[styles.container, style, this.props.disabled ? formStyles.disabledFieldControl : {}, { borderColor: error ? rnConstants.DANGER_TEXT_COLOR : rnConstants.BORDER_COLOR }]}>
+        <RnView style={[rnStyles.inputContainer, style, this.props.disabled ? rnStyles.disabledFieldControl : {}, { borderColor: error ? rnConstants.DANGER_TEXT_COLOR : rnConstants.BORDER_COLOR }]}>
           {/* { flexDirection: 'row', alignItems: 'center', borderRadius: cssConstants.INPUT_BORDER_RADIUS, backgroundColor: cssConstants.BACKGROUND_COLOR, borderWidth: 1, borderColor: isFocused ? cssConstants.PRIMARY_COLOR : cssConstants.BORDER_COLOR, paddingHorizontal: cssConstants.DEFAULT_PADDING } */}
-          {/* <InnView style={formStyles.fieldInput}> */}
+          {/* <InnView style={rnStyles.fieldInput}> */}
           {
             this.props.icon ? <RnView style={{ marginHorizontal: rnConstants.DEFAULT_MARGIN / 2 }}><RnIcon name={icon} color={this.props.iconColor ? this.props.iconColor : rnConstants.TEXT_COLOR} /></RnView> : null
           }
@@ -102,7 +100,7 @@ class RnInput extends React.Component<RnInputProps, State> {
             selectionColor={rnConstants.PRIMARY_COLOR}
             placeholderTextColor={this.props.placeholderTextColor || rnConstants.TEXT_COLOR}
             secureTextEntry={this.state.secureText}
-            style={styles.textInput}
+            style={rnStyles.textInput}
             onFocus={this.handleFocus}
             onBlur={this.handleBlur}
             // {...(this.props.defaultValue ? {value:Number.isNaN(this.props.defaultValue) ? this.props.defaultValue : (this.props.defaultValue + '')} : {})}
@@ -121,44 +119,11 @@ class RnInput extends React.Component<RnInputProps, State> {
           }
           {/* </InnView> */}
         </RnView>
-        {error ? <RnText fontWeight={500} style={styles.errorText}>{error || ""}</RnText> : <></>}
-        {this.state.errorMessage ? <RnText fontWeight={500} style={styles.errorText}>{this.state.errorMessage || ""}</RnText> : <></>}
+        {error ? <RnText fontWeight={500} style={rnStyles.errorText}>{error || ""}</RnText> : <></>}
+        {this.state.errorMessage ? <RnText fontWeight={500} style={rnStyles.errorText}>{this.state.errorMessage || ""}</RnText> : <></>}
       </>
     );
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: rnConstants.BACKGROUND_COLOR,
-    height: rnConstants.INPUT_HEIGHT,
-    paddingHorizontal: rnConstants.DEFAULT_PADDING,
-    borderRadius: rnConstants.INPUT_BORDER_RADIUS * 2,
-    borderWidth: 1,
-    fontSize: rnConstants.BASE_FONT_SIZE,
-    color: rnConstants.TEXT_COLOR,
-    width: '100%',
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  textInput: {
-    height: 40,
-    borderWidth: 1,
-    borderColor: 'transparent',
-    width: '100%'
-  },
-  errorText: {
-    height: 20,
-    marginTop: 4,
-    fontSize: rnConstants.SMALL_FONT_SIZE,
-    color: rnConstants.DANGER_TEXT_COLOR,
-    ...Platform.select({
-      android: {
-        paddingLeft: 4,
-        paddingTop: 5
-      },
-    })
-  }
-});
 
 export default RnInput;

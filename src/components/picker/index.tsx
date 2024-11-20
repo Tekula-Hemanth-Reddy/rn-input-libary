@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { FlatList, Modal, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
-import { default as rnConstants, default as innConstants } from '../../config/rn-constants';
-import { formStyles } from '../../config/rn-styles';
+import { FlatList, Modal, SafeAreaView, TouchableOpacity } from 'react-native';
+import rnConstants from '../../config/rn-constants';
+import { rnStyles } from '../../config/rn-styles';
 import { RnButton } from '../button';
 import { RnIcon } from '../icon';
 import { RnView } from '../view';
@@ -72,7 +72,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
 
     private renderListItem(item: RnPickerOption, index: number) {
         return (
-            <TouchableOpacity style={[styles.item]} disabled={(!this.props.customOptionRender && this.props.disable)} onPress={() => this.onItemPress(item, index)}>
+            <TouchableOpacity style={[rnStyles.inputItem]} disabled={(!this.props.customOptionRender && this.props.disable)} onPress={() => this.onItemPress(item, index)}>
                 {
                     this.props.customOptionRender ? this.props.customOptionRender(item, index) :
                         <RnView row >
@@ -81,7 +81,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                                     marginRight
                                     style={
                                         [
-                                            styles.circle,
+                                            rnStyles.inputCircle,
                                             { backgroundColor: item.color }
                                         ]
                                     } >
@@ -91,7 +91,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                             <RnText ellipsizeMode='tail' numberOfLines={1}
                                 style={
                                     [
-                                        styles.text,
+                                        rnStyles.inputText,
                                         (this.state?.selected?.value == item.value)
                                             ? { color: rnConstants.PRIMARY_COLOR }
                                             : {}
@@ -107,7 +107,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
 
     private renderOptions() {
         return <>
-            <RnView style={{ marginHorizontal: innConstants.DEFAULT_MARGIN }}>
+            <RnView style={{ marginHorizontal: rnConstants.DEFAULT_MARGIN }}>
                 <InnSearchComponent
                     searchObject={this.state.pickerData}
                     keyFilter={['label']}
@@ -141,13 +141,13 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                         style={{
                             height: '100%',
                             backgroundColor: rnConstants.WHITE_COLOR,
-                            paddingBottom: innConstants.DEFAULT_PADDING,
-                            paddingHorizontal: innConstants.DEFAULT_PADDING
+                            paddingBottom: rnConstants.DEFAULT_PADDING,
+                            paddingHorizontal: rnConstants.DEFAULT_PADDING
                         }}
                     >
-                        <RnView full style={styles.dropdown}>
-                            <TouchableOpacity style={{ flexDirection: 'row', marginBottom: innConstants.DEFAULT_MARGIN }} onPress={() => { this.toggleDropdown() }}>
-                                <RnButton transparent onPress={() => { this.toggleDropdown() }} iconLeft={<RnIcon name='chevron-left' size={innConstants.LARGE_FONT_SIZE} color={innConstants.TEXT_COLOR} />} text={this.props.label}></RnButton>
+                        <RnView full style={rnStyles.inputDropdown}>
+                            <TouchableOpacity style={{ flexDirection: 'row', marginBottom: rnConstants.DEFAULT_MARGIN }} onPress={() => { this.toggleDropdown() }}>
+                                <RnButton transparent onPress={() => { this.toggleDropdown() }} iconLeft={<RnIcon name='chevron-left' size={rnConstants.LARGE_FONT_SIZE} color={rnConstants.TEXT_COLOR} />} text={this.props.label}></RnButton>
                             </TouchableOpacity>
                             {this.renderOptions()}
                         </RnView>
@@ -166,10 +166,10 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                 style={{
                     height: 1,
                     width: "95%",
-                    backgroundColor: innConstants.TEXT_COLOR,
+                    backgroundColor: rnConstants.TEXT_COLOR,
                     opacity: 0.5,
-                    marginVertical: innConstants.DEFAULT_MARGIN / 2,
-                    marginHorizontal: innConstants.DEFAULT_MARGIN
+                    marginVertical: rnConstants.DEFAULT_MARGIN / 2,
+                    marginHorizontal: rnConstants.DEFAULT_MARGIN
                 }}
             />
         );
@@ -181,7 +181,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
         return (
             <>
                 <RnView row>
-                    {(this.props.label?.length > 0 && this.props.showLabel) && <RnText style={formStyles.fieldName}>{this.props.label}</RnText>}
+                    {(this.props.label?.length > 0 && this.props.showLabel) && <RnText style={rnStyles.fieldName}>{this.props.label}</RnText>}
                     {this.props.required && <RnText style={{ color: rnConstants.DANGER_TEXT_COLOR, marginBottom: rnConstants.DEFAULT_MARGIN / 2 }}>*</RnText>}
                 </RnView>
                 {!this.state.showModal ? <RnView full>
@@ -189,7 +189,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                 </RnView> :
                     <TouchableOpacity
                         ref={ref => this.view = ref}
-                        style={[styles.button, this.props.pickerStyles || {}, this.props.disable ? formStyles.disabledFieldControl : {}]}
+                        style={[rnStyles.inputButton, this.props.pickerStyles || {}, this.props.disable ? rnStyles.disabledFieldControl : {}]}
                         onPress={() => this.toggleDropdown()}
                         disabled={this.props.disable || false}
                     >
@@ -197,14 +197,14 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                         {this.state?.selected?.color
                             ? <RnView marginRight style={
                                 [
-                                    styles.circle,
+                                    rnStyles.inputCircle,
                                     { backgroundColor: this.state.selected.color }
                                 ]
                             }>
                             </RnView>
                             : <></>
                         }
-                        <RnText textAlignLeft ellipsizeMode='tail' numberOfLines={1} style={[styles.buttonText, this.props.pickerTextStyles || {}]} > {
+                        <RnText textAlignLeft ellipsizeMode='tail' numberOfLines={1} style={[rnStyles.inputButtonText, this.props.pickerTextStyles || {}]} > {
                             (this.state.selected && this.state.selected.label) ||
                             (this.props.showLabel
                                 ? this.props.label
@@ -213,7 +213,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                                     : rnStrings.SELECT_LABEL
                             )
                         }</RnText >
-                        <RnIcon name='keyboard-arrow-down' color={this.props.arrowColor ? this.props.arrowColor : innConstants.PRIMARY_COLOR} />
+                        <RnIcon name='keyboard-arrow-down' color={this.props.arrowColor ? this.props.arrowColor : rnConstants.PRIMARY_COLOR} />
                     </TouchableOpacity >
                 }
                 {/* Warning mesagge for form validations */}
@@ -224,37 +224,3 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
         );
     }
 }
-
-const styles = StyleSheet.create({
-    button: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: innConstants.WHITE_COLOR,
-        height: innConstants.INPUT_HEIGHT,
-        paddingHorizontal: innConstants.DEFAULT_PADDING,
-        borderRadius: innConstants.INPUT_BORDER_RADIUS,
-        borderColor: innConstants.BORDER_COLOR,
-        borderWidth: 1,
-        zIndex: 1,
-    },
-    buttonText: {
-        flex: 1,
-        color: innConstants.TEXT_COLOR,
-        fontSize: rnConstants.BASE_FONT_SIZE
-    },
-    dropdown: {
-        width: '100%',
-    },
-    item: {
-        paddingHorizontal: innConstants.DEFAULT_PADDING,
-        paddingVertical: innConstants.DEFAULT_PADDING,
-    },
-    text: {
-        color: rnConstants.LIGHT_TEXT_COLOR
-    },
-    circle: {
-        height: rnConstants.PICKER_CIRCLE_HEIGHT,
-        width: rnConstants.PICKER_CIRCLE_WIDTH,
-        borderRadius: rnConstants.PICKER_BORDER_RADIUS
-    },
-});

@@ -4,7 +4,7 @@ import rnConstants from "../../config/rn-constants";
 import { RnText } from "../text";
 import { RnButtonProps } from "../../types";
 import ButtonLoader from "./loader";
-import { commonStyles } from "src/config/rn-styles";
+import { rnStyles } from "src/config/rn-styles";
 import { buttonHeights, themeOptions } from "src/config/rn-button-constants";
 
 const getTheme = (props: RnButtonProps) => {
@@ -90,7 +90,7 @@ export function RnButton(props: RnButtonProps) {
             {...touchableOpacityProps}
             style={
                 [
-                    commonStyles.container,
+                    rnStyles.mainSliderContainer,
                     {
                         backgroundColor: transparent || outline ? 'transparent' : (props.disabled ? rnConstants.DISABLE_COLOR : themeOption.backgroundColor),
                         borderColor: props.disabled ? rnConstants.DISABLE_COLOR : props.brightBorder ? rnConstants.SECONDARY_COLOR : themeOption.borderColor,
@@ -166,7 +166,7 @@ export function RnButton(props: RnButtonProps) {
                         {/* {innButtonLeftIcon} */}
                         {leftIcon ? React.cloneElement(leftIcon, { color: leftIcon.props.color ? leftIcon.props.color : themeOption.textColor }) : <></>}
                         {icon ? React.cloneElement(icon, { color: icon.props.color ? icon.props.color : themeOption.textColor }) : <></>}
-                        {text && <RnText fontWeight={props.textStyle?.fontWeight ? props.textStyle?.fontWeight : 400} {...numberOfLines ? { numberOfLines } : {}} {...maxLinesToView ? { maxLinesToView: maxLinesToView } : {}} style={[{ color: outline ? themeOption.outlineTextColor : themeOption.textColor, fontSize: rnConstants.SMALL_FONT_SIZE }, { ...commonStyles.buttonText, ...(props.textStyle || {}) }]} {...props.textProps}>{text}</RnText>}
+                        {text && <RnText fontWeight={props.textStyle?.fontWeight ? props.textStyle?.fontWeight : 400} {...numberOfLines ? { numberOfLines } : {}} {...maxLinesToView ? { maxLinesToView: maxLinesToView } : {}} style={[{ color: outline ? themeOption.outlineTextColor : themeOption.textColor, fontSize: rnConstants.SMALL_FONT_SIZE }, { ...rnStyles.buttonText, ...(props.textStyle || {}) }]} {...props.textProps}>{text}</RnText>}
                         {props.children}
                         {/* {innButtonRightIcon} */}
                         {rightIcon ? React.cloneElement(rightIcon, { color: rightIcon.props.color ? rightIcon.props.color : themeOption.textColor }) : <></>}

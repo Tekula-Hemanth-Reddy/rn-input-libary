@@ -1,7 +1,7 @@
 import React from "react";
 import { View } from "react-native";
 import rnConstants from "../../config/rn-constants";
-import { commonStyles } from "../../config/rn-styles";
+import { rnStyles } from "../../config/rn-styles";
 import { RnViewProps } from '../../types'
 
 
@@ -26,15 +26,15 @@ export function RnView({
     marginLeft,
     marginRight,
     border, ...viewProps }: RnViewProps) {
-    return <View {...viewProps} style={[commonStyles.background_transperent,
-    (row ? commonStyles.row : {}),
-    (justifyBetween ? commonStyles.rowSpaceBetween : {}),
-    (justifyCenter ? commonStyles.centerAlign : {}),
-    (justifyEnd ? commonStyles.rowFlexEnd : {}),
-    (justifyStart ? commonStyles.rowFlexStart : {}),
+    return <View {...viewProps} style={[rnStyles.background_transperent,
+    (row ? rnStyles.row : {}),
+    (justifyBetween ? rnStyles.rowSpaceBetween : {}),
+    (justifyCenter ? rnStyles.centerAlign : {}),
+    (justifyEnd ? rnStyles.rowFlexEnd : {}),
+    (justifyStart ? rnStyles.rowFlexStart : {}),
 
 
-    (col ? commonStyles.col : {}),
+    (col ? rnStyles.col : {}),
 
     (padding && !isNaN(Number(padding)) ? { padding: Number(padding) } : {}),
     (padding && typeof padding === 'boolean' ? { padding: rnConstants.DEFAULT_PADDING } : {}),
@@ -78,8 +78,8 @@ export function RnView({
     (marginRight && !isNaN(Number(marginRight)) ? { marginRight: Number(marginRight) } : {}),
     (marginRight && typeof marginRight === 'boolean' ? { marginRight: rnConstants.DEFAULT_MARGIN } : {}),
 
-    (border ? commonStyles.border : {}),
+    (border ? rnStyles.border : {}),
 
-    (full ? commonStyles.fullView : {}),
+    (full ? rnStyles.fullView : {}),
     viewProps.style]} >{viewProps.children}</View>
 }

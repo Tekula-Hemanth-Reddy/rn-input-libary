@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect, useState } from "react";
-import { StyleSheet, TouchableOpacity, FlatList } from "react-native";
-import { formStyles } from "../../config/rn-styles";
+import { TouchableOpacity, FlatList } from "react-native";
+import { rnStyles } from "../../config/rn-styles";
 import rnConstants from "../../config/rn-constants";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
@@ -69,7 +69,7 @@ export function RnCheckBoxGroup(props: RnCheckboxGroupProps) {
                             alignItems: 'center'
                         }}>
                             <TouchableOpacity
-                                style={styles.radioButtonWrapper}
+                                style={rnStyles.radioButtonWrapper}
                                 disabled={disable}
                                 onPress={() => currentValueChange(item)}
                             >
@@ -78,7 +78,7 @@ export function RnCheckBoxGroup(props: RnCheckboxGroupProps) {
                                     : null
                                 }
                             </TouchableOpacity>
-                            {item.label && item.label.length && <RnText style={{ ...formStyles.fieldName, marginBottom: 0 }}>{item.label}</RnText>}
+                            {item.label && item.label.length && <RnText style={{ ...rnStyles.fieldName, marginBottom: 0 }}>{item.label}</RnText>}
                         </RnView>
                     );
                 }}
@@ -87,18 +87,3 @@ export function RnCheckBoxGroup(props: RnCheckboxGroupProps) {
         </RnView>
     );
 }
-
-
-const styles = StyleSheet.create({
-    radioButtonWrapper: {
-        width: 26,
-        height: 26,
-        borderColor: rnConstants.BORDER_COLOR,
-        borderWidth: 1,
-        borderRadius: 13,
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        margin: rnConstants.DEFAULT_MARGIN,
-    },
-})

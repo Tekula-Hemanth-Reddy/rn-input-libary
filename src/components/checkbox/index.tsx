@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { TouchableOpacity } from "react-native";
 import rnConstants from "../../config/rn-constants";
-import { formStyles } from "../../config/rn-styles";
+import { rnStyles } from "../../config/rn-styles";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
 import { RnText } from "../text";
@@ -31,8 +31,8 @@ export function RnCheckbox(props: RnCheckboxProps) {
     return (
         <>
             <RnView row>
-                {props.label && props.label?.length > 0 && <RnText style={formStyles.fieldName}>{props.label}</RnText>}
-                {props.required && <RnText style={{ ...formStyles.fieldName, color: rnConstants.DANGER_TEXT_COLOR }}>*</RnText>}
+                {props.label && props.label?.length > 0 && <RnText style={rnStyles.fieldName}>{props.label}</RnText>}
+                {props.required && <RnText style={{ ...rnStyles.fieldName, color: rnConstants.DANGER_TEXT_COLOR }}>*</RnText>}
             </RnView>
             <TouchableOpacity
                 disabled={checkBoxDisable}

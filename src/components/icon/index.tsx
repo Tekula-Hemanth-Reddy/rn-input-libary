@@ -1,9 +1,9 @@
 import { MaterialIcons, FontAwesome, FontAwesome5, FontAwesome6, Feather, Entypo, EvilIcons, Ionicons, AntDesign } from '@expo/vector-icons';
 import React, { useEffect, useState } from "react";
-import { StyleSheet } from "react-native";
 import rnConstants from "../../config/rn-constants";
 import { RnView } from '../view';
 import { RnIconProps } from '../../types';
+import { rnStyles } from 'src/config/rn-styles';
 
 
 
@@ -40,18 +40,10 @@ export function RnIcon({ type, name, color, size, ...iconProps }: RnIconProps) {
         }
     }
     return (
-        <RnView {...iconProps} style={[styles.container, iconProps.style]}>
+        <RnView {...iconProps} style={[rnStyles.iconContainer, iconProps.style]}>
             {
                 getIcon()
             }
         </RnView>
     )
 }
-
-const styles = StyleSheet.create({
-    container: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        backgroundColor: 'transparent'
-    }
-});

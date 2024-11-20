@@ -2,7 +2,7 @@
 import React from 'react';
 import { Text as NativeText } from 'react-native';
 import rnConstants from '../../config/rn-constants';
-import { commonStyles } from '../../config/rn-styles';
+import { rnStyles } from '../../config/rn-styles';
 import { RnTextProps } from '../../types';
 
 
@@ -62,9 +62,9 @@ export function RnText({ fontWeight, italic, note, light, title,
         { ...(title ? { fontSize: rnConstants.MEDIUM_FONT_SIZE, color: rnConstants.SECONDARY_COLOR } : {}) },
         { ...(banner ? { fontFamily: `PlusJakartaSans-${fontWeights[fontWeight || 600]}` } : {}) },
 
-        (alignCenter ? commonStyles.textAlignCenter : {}),
-        (alignLeft ? commonStyles.textAlignLeft : {}),
-        (alignRight ? commonStyles.textAlignRight : {}),
+        (alignCenter ? rnStyles.textAlignCenter : {}),
+        (alignLeft ? rnStyles.textAlignLeft : {}),
+        (alignRight ? rnStyles.textAlignRight : {}),
         (full ? { flex: 1 } : {}),
         (padding && !isNaN(Number(padding)) ? { padding: Number(padding) } : {}),
         (padding && typeof padding === 'boolean' ? { padding: rnConstants.DEFAULT_PADDING } : {}),

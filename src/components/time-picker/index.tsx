@@ -3,7 +3,7 @@ import moment from "moment";
 import React, { Component } from "react";
 import { Modal, Platform, TouchableOpacity } from "react-native";
 import rnConstants from "../../config/rn-constants";
-import { formStyles } from "../../config/rn-styles";
+import { rnStyles } from "../../config/rn-styles";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
 import { RnText } from "../text";
@@ -100,20 +100,20 @@ export class InnTimePicker extends Component<RnTimePickerProps, ITimePickerState
         return (
             <RnView style={{ flex: 1 }}>
                 <RnView row>
-                    {this.props.label?.length > 0 && <RnText style={formStyles.fieldName}>{this.props.label}</RnText>}
-                    {this.props.required && <RnText style={{ ...formStyles.fieldName, color: rnConstants.DANGER_TEXT_COLOR }}>*</RnText>}
+                    {this.props.label?.length > 0 && <RnText style={rnStyles.fieldName}>{this.props.label}</RnText>}
+                    {this.props.required && <RnText style={{ ...rnStyles.fieldName, color: rnConstants.DANGER_TEXT_COLOR }}>*</RnText>}
                 </RnView>
                 <TouchableOpacity disabled={this.props.disable}
                     onPress={this.openTimePicker.bind(this)}
                     style={[{
-                        ...formStyles.fieldInputContainer,
+                        ...rnStyles.fieldInputContainer,
                         justifyContent: 'space-between',
                         paddingHorizontal: rnConstants.DEFAULT_PADDING,
                         backgroundColor: 'white',
                         borderColor: rnConstants.BORDER_COLOR,
                         borderWidth: 1,
                         borderRadius: rnConstants.INPUT_BORDER_RADIUS
-                    }, this.props.inputBoxStyles, this.props.disable ? formStyles.disabledFieldControl : {}]}>
+                    }, this.props.inputBoxStyles, this.props.disable ? rnStyles.disabledFieldControl : {}]}>
                     <RnText>{moment(this.state.currentTime).format("h:mm A")}</RnText>
                     <RnIcon name="access-time" size={20} color={this.props?.pickerIconColor ? this.props?.pickerIconColor : rnConstants.PRIMARY_COLOR} />
                 </TouchableOpacity>
@@ -127,8 +127,8 @@ export class InnTimePicker extends Component<RnTimePickerProps, ITimePickerState
                     visible={this.state.timePickerState && Platform.OS == "ios"}
                     onRequestClose={() => this.closeTimePicker()}
                 >
-                    <RnView style={formStyles.tableModalView}>
-                        <RnView style={{ ...formStyles.tableModalContent }}>
+                    <RnView style={rnStyles.tableModalView}>
+                        <RnView style={{ ...rnStyles.tableModalContent }}>
                             <TouchableOpacity style={{ alignSelf: 'flex-end' }} onPress={() => this.closeTimePicker()}>
                                 <RnIcon name="close" size={20} color={rnConstants.BLACK_COLOR} />
                             </TouchableOpacity>

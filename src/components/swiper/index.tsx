@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react'
-import { Animated, NativeScrollEvent, NativeSyntheticEvent, ScrollView, StyleSheet, Dimensions } from 'react-native'
+import { Animated, NativeScrollEvent, NativeSyntheticEvent, ScrollView, Dimensions } from 'react-native'
 import { RnView } from '../view'
 import { RnSwiper } from 'src/types'
 import rnConstants from 'src/config/rn-constants'
+import { rnStyles } from 'src/config/rn-styles'
 
 
 const RnSwiper = ({ children, pagination = true, snapScroll = true }: RnSwiper) => {
@@ -98,8 +99,8 @@ const RnSwiper = ({ children, pagination = true, snapScroll = true }: RnSwiper) 
                         }
 
                         return (
-                            <Animated.View key={index} style={[styles.page, dotStyle]} >
-                                <Animated.Text style={[styles.currentPageFont, textStyle]}> {index + 1} / {pages}</Animated.Text>
+                            <Animated.View key={index} style={[rnStyles.page, dotStyle]} >
+                                <Animated.Text style={[rnStyles.currentPageFont, textStyle]}> {index + 1} / {pages}</Animated.Text>
                             </Animated.View>
                         )
                     })
@@ -131,16 +132,3 @@ const RnSwiper = ({ children, pagination = true, snapScroll = true }: RnSwiper) 
 }
 
 export default RnSwiper
-
-const styles = StyleSheet.create({
-    page: {
-        minHeight: 8,
-        borderRadius: 50,
-        alignItems: 'center',
-        justifyContent: 'center'
-    },
-
-    currentPageFont: {
-        fontWeight: "600"
-    }
-})

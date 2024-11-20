@@ -4,7 +4,6 @@ import {
     Easing,
     Keyboard,
     Modal,
-    StyleSheet,
     TouchableOpacity,
     FlatList
 } from "react-native";
@@ -18,7 +17,7 @@ import { RnMultiSelectProps, RnMutliSelectOption } from "src/types";
 import rnConstants from "src/config/rn-constants";
 import { RnView } from "../view";
 import { RnText } from "../text";
-import { formStyles } from "src/config/rn-styles";
+import { rnStyles } from "src/config/rn-styles";
 import { RnButton } from "../button";
 
 interface State {
@@ -311,8 +310,8 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
                 {this.state.showModal ? <>
                     <TouchableOpacity onPress={() => this.setState({ toggle: true })}
                         disabled={this.props.disable || false}
-                        style={[this.props.brightBorder ? styles.brightButton : styles.button, this.props.inputBoxStyles, this.props.disable ? formStyles.disabledFieldControl : {}]} >
-                        < RnText ellipsizeMode='tail' numberOfLines={1} style={[styles.buttonText]} > {(this.state.selectedValues && this.state.selectedValues.length > 0) ? this.state.selectedValues.replace(/,/g, ', ') : (this.props.label || rnStrings.SELECT_LABEL)}</RnText >
+                        style={[rnStyles.inputButton, this.props.inputBoxStyles, this.props.disable ? rnStyles.disabledFieldControl : {}]} >
+                        < RnText ellipsizeMode='tail' numberOfLines={1} style={[rnStyles.inputButtonText]} > {(this.state.selectedValues && this.state.selectedValues.length > 0) ? this.state.selectedValues.replace(/,/g, ', ') : (this.props.label || rnStrings.SELECT_LABEL)}</RnText >
                         <RnIcon name='keyboard-arrow-down' color={rnConstants.PRIMARY_COLOR} />
                     </TouchableOpacity >
                     {
@@ -349,45 +348,3 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
     }
 }
 export default RnMultiSelect;
-const styles = StyleSheet.create({
-    button: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: rnConstants.BACKGROUND_COLOR,
-        height: rnConstants.INPUT_HEIGHT,
-        paddingHorizontal: rnConstants.DEFAULT_PADDING,
-        borderRadius: rnConstants.INPUT_BORDER_RADIUS,
-        borderColor: rnConstants.BORDER_COLOR,
-        borderWidth: 1,
-        zIndex: 1,
-    },
-    brightButton: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        backgroundColor: rnConstants.BACKGROUND_COLOR,
-        height: rnConstants.INPUT_HEIGHT,
-        paddingHorizontal: rnConstants.DEFAULT_PADDING,
-        borderRadius: rnConstants.INPUT_BORDER_RADIUS,
-        borderColor: rnConstants.SECONDARY_COLOR,
-        borderWidth: 1,
-        zIndex: 1,
-    },
-    buttonText: {
-        flex: 1,
-        color: rnConstants.TEXT_COLOR,
-        textAlign: 'left',
-        fontSize: rnConstants.BASE_FONT_SIZE
-    },
-    backIcon: {
-        fontSize: 20,
-        color: rnConstants.BLACK_COLOR,
-        alignSelf: 'flex-start',
-        paddingVertical: 1,
-        paddingHorizontal: 3
-
-    },
-    fieldInput: {
-        fontSize: rnConstants.INPUT_FONT_SIZE,
-        height: rnConstants.INPUT_HEIGHT
-    },
-})

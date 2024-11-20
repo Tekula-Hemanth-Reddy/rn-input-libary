@@ -1,8 +1,9 @@
 import React from "react";
-import { StyleSheet, View, PanResponder, Animated, Text } from "react-native";
+import { View, PanResponder, Animated, Text } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { RnSliderProps } from "../../types";
 import rnConstants from "../../config/rn-constants";
+import { rnStyles } from "src/config/rn-styles";
 
 // ---------- usage --------------//
 {/* 
@@ -200,7 +201,7 @@ export default function RnSlider(props: RnSliderProps) {
         return (
             <Animated.View
                 style={[
-                    s.draggable,
+                    rnStyles.draggable,
                     {
                         transform:
                             [{
@@ -216,7 +217,7 @@ export default function RnSlider(props: RnSliderProps) {
                 ]}
                 {...min_panResponder.panHandlers}
             >
-                <View style={s.icon}>
+                <View style={rnStyles.icon}>
                     <MaterialIcons name={icon} size={30} color={colorHighlight} />
                 </View>
             </Animated.View>
@@ -226,7 +227,7 @@ export default function RnSlider(props: RnSliderProps) {
     const min_getLine = () => {
         return (
             <Animated.View style={[
-                s.line,
+                rnStyles.line,
                 [{
                     translateX: min_pan.x.interpolate(
                         {
@@ -298,7 +299,7 @@ export default function RnSlider(props: RnSliderProps) {
         return (
             <Animated.View
                 style={[
-                    s.draggable,
+                    rnStyles.draggable,
                     {
                         transform:
                             [{
@@ -314,7 +315,7 @@ export default function RnSlider(props: RnSliderProps) {
                 ]}
                 {...max_panResponder.panHandlers}
             >
-                <View style={s.icon}>
+                <View style={rnStyles.icon}>
                     <MaterialIcons name={icon} size={30} color={colorHighlight} />
                 </View>
             </Animated.View>
@@ -324,7 +325,7 @@ export default function RnSlider(props: RnSliderProps) {
     const max_getLine = () => {
         return (
             <Animated.View style={[
-                s.line,
+                rnStyles.line,
                 [{
                     translateX: max_pan.x.interpolate(
                         {
@@ -345,141 +346,26 @@ export default function RnSlider(props: RnSliderProps) {
 
     // ----------------- Render ----------------------- //
     return (
-        <View style={s.mainContainer}>
-            <View style={s.container}>
-                <View style={s.labelValue}>
-                    <Text style={s.labelValueText}>{min_animState.displayVal}</Text>
+        <View style={rnStyles.mainContainer}>
+            <View style={rnStyles.mainSliderContainer}>
+                <View style={rnStyles.labelValue}>
+                    <Text style={rnStyles.labelValueText}>{min_animState.displayVal}</Text>
                 </View>
                 <View
-                    style={[s.sliderContainer, { marginHorizontal: sliderHeight * manualOffsetBetweenSlider }]}
+                    style={[rnStyles.sliderContainer, { marginHorizontal: sliderHeight * manualOffsetBetweenSlider }]}
                     onLayout={(event) => initSliders(event.nativeEvent.layout.height, event.nativeEvent.layout.width)}
                 >
-                    <View style={[s.lineContainer, { backgroundColor: colorHighlight }]}>
+                    <View style={[rnStyles.lineContainer, { backgroundColor: colorHighlight }]}>
                         {props.rangeSlider && min_getLine()}
                         {max_getLine()}
                     </View>
                     {props.rangeSlider && min_getSlider()}
                     {max_getSlider()}
                 </View>
-                <View style={s.labelValue}>
-                    <Text style={s.labelValueText}>{max_animState.displayVal}</Text>
+                <View style={rnStyles.labelValue}>
+                    <Text style={rnStyles.labelValueText}>{max_animState.displayVal}</Text>
                 </View>
             </View>
         </View>
     );
 }
-
-const s = StyleSheet.create({
-    mainContainer:
-    {
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-        width: "100%",
-        aspectRatio: 4,
-    },
-    container:
-    {
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-        flex: 1,
-        flexDirection: "row",
-    },
-
-    labelValue:
-    {
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-        flex: 1,
-    },
-    labelValueText:
-    {
-        fontSize: rnConstants.BASE_FONT_SIZE,
-    },
-
-    sliderContainer:
-    {
-        alignItems: "center",
-        justifyContent: "center",
-        // overflow: "hidden",
-        height: "100%",
-        flex: 8,
-        overflow: 'visible',
-    },
-    lineContainer:
-    {
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-        height: 4,
-        width: "80%",
-        flexDirection: 'row',
-        position: "absolute",
-        left: "10%",
-        top: "50%",
-        marginTop: -3,
-        borderRadius: 60,
-    },
-    line:
-    {
-        height: "100%",
-        width: "100%",
-        position: 'absolute',
-    },
-    draggable:
-    {
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100%",
-        aspectRatio: 1,
-        position: 'absolute',
-        top: -5,
-        flexDirection: 'row',
-        borderRadius: 100,
-        overflow: "visible",
-    },
-    circle:
-    {
-        shadowColor: rnConstants.DISABLE_COLOR,
-        shadowOffset: { width: 0, height: 2 },
-        shadowOpacity: 0.24,
-        shadowRadius: 2.8,
-        elevation: 3,
-        alignItems: "center",
-        justifyContent: "center",
-        flexDirection: "row",
-        aspectRatio: 1,
-        backgroundColor: "#ffffff",
-        borderRadius: 15,
-        borderTopLeftRadius: 60,
-        borderTopRightRadius: 60,
-        borderWidth: StyleSheet.hairlineWidth,
-        borderColor: "#f1f1f1",
-        overflow: "visible",
-    },
-    icon:
-    {
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-        height: "100%",
-        width: "80%",
-        paddingTop: 5
-    },
-    labelContainer:
-    {
-        alignItems: "center",
-        justifyContent: "center",
-        overflow: "hidden",
-        width: "100%",
-        aspectRatio: 3,
-        position: 'absolute',
-        bottom: 0,
-    },
-    label:
-    {
-        fontSize: 9,
-    },
-});

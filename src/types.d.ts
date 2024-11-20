@@ -153,7 +153,6 @@ export interface RnMultiSelectProps {
     required?: boolean;
     triggerValidation?: boolean;
     selectedValues?: string,
-    brightBorder?: boolean,
     customOptionRender?: (item, index) => JSX.Element,
     showModal?: boolean,
     onChange?: Function,
