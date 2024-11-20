@@ -283,16 +283,6 @@ export interface RnChipProps {
     chipColor?: string;
 }
 
-export interface RnImageProps {
-    onPress?: Function;
-    type?: string;
-    source: ImageSourcePropType | AVPlaybackSource,
-    image?: boolean;
-    style?: StyleProp<ImageStyle> | StyleProp<ViewStyle>,
-    resizeMode?: ImageResizeMode | ResizeMode;
-    resizeMethod?: boolean;
-}
-
 export interface RnProgressBarProps {
     progress?: number;
 }

@@ -6,7 +6,6 @@ export * from "./components/input";
 export * from "./components/icon";
 export * from "./components/picker";
 export * from "./components/multi-select";
-export * from "./components/media";
 export * from "./components/progress-bar";
 export * from "./components/slider";
 export * from "./components/checkbox";
