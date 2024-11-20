@@ -1,7 +1,7 @@
 import React from 'react';
 import { RnView } from '../view';
-import { rnStyles } from 'src/config/rn-styles';
-import { RnProgressBarProps } from 'src/types';
+import { rnStyles } from '../../config/rn-styles';
+import { RnProgressBarProps } from '../../types';
 
 export const RnProgressBar = ({ progress }: RnProgressBarProps) => {
     return (

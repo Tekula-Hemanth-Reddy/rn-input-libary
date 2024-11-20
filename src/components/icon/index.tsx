@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import rnConstants from "../../config/rn-constants";
 import { RnView } from '../view';
 import { RnIconProps } from '../../types';
-import { rnStyles } from 'src/config/rn-styles';
+import { rnStyles } from '../../config/rn-styles';
 
 
 

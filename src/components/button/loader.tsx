@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
-import rnConstants from 'src/config/rn-constants';
+import rnConstants from '../../config/rn-constants';
 
 interface IButtonLoader {
     numberOfCircles?: number

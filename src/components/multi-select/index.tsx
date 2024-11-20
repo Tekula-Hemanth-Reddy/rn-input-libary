@@ -13,11 +13,11 @@ import { rnStrings } from "../../config/rn-strings";
 import { RnCheckbox } from "../checkbox";
 import { RnIcon } from "../icon";;
 import RnSearchComponent from "../search";
-import { RnMultiSelectProps, RnMutliSelectOption } from "src/types";
-import rnConstants from "src/config/rn-constants";
+import { RnMultiSelectProps, RnMutliSelectOption } from "../../types";
+import rnConstants from "../../config/rn-constants";
 import { RnView } from "../view";
 import { RnText } from "../text";
-import { rnStyles } from "src/config/rn-styles";
+import { rnStyles } from "../../config/rn-styles";
 import { RnButton } from "../button";
 
 interface State {

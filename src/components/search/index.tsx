@@ -10,7 +10,7 @@ import { RnButton } from "../button";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
 import { RnSearchComponentProps } from "../../types";
-import { rnStyles } from "src/config/rn-styles";
+import { rnStyles } from "../../config/rn-styles";
 
 interface RnSearchComponentState {
     showCancel: boolean;

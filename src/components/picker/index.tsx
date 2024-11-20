@@ -8,7 +8,7 @@ import { RnView } from '../view';
 import RnSearchComponent from '../search';
 import { RnText } from '../text';
 import { RnPickerProps, RnPickerOption } from '../../types';
-import { rnStrings } from 'src/config/rn-strings';
+import { rnStrings } from '../../config/rn-strings';
 
 interface RnPickerState {
     visible: boolean;

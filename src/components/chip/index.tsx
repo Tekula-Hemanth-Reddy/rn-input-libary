@@ -3,7 +3,7 @@ import { TouchableOpacity } from "react-native";
 import rnConstants from "../../config/rn-constants";
 import { RnView } from "../view";
 import { RnText } from "../text";
-import { RnChipProps } from "src/types";
+import { RnChipProps } from "../../types";
 
 export default function RnChip(props: RnChipProps) {
   const {

@@ -4,8 +4,8 @@ import rnConstants from "../../config/rn-constants";
 import { RnText } from "../text";
 import { RnButtonProps } from "../../types";
 import ButtonLoader from "./loader";
-import { rnStyles } from "src/config/rn-styles";
-import { buttonHeights, themeOptions } from "src/config/rn-button-constants";
+import { rnStyles } from "../../config/rn-styles";
+import { buttonHeights, themeOptions } from "../../config/rn-button-constants";
 
 const getTheme = (props: RnButtonProps) => {
     switch (true) {

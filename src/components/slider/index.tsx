@@ -3,7 +3,7 @@ import { View, PanResponder, Animated, Text } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { RnSliderProps } from "../../types";
 import rnConstants from "../../config/rn-constants";
-import { rnStyles } from "src/config/rn-styles";
+import { rnStyles } from "../../config/rn-styles";
 
 // ---------- usage --------------//
 {/* 

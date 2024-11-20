@@ -22,6 +22,9 @@
     "paths": {
       "react-native": [
         "node_modules/react-native"
+      ],
+      "rn-input-libary": [
+        "node_modules/rn-input-libary"
       ]
     },
   },

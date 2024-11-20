@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Image, ImageResizeMode, ImageSourcePropType, ImageStyle, ImageURISource, Platform, StyleProp, TouchableOpacity, ViewStyle } from "react-native";
 import { rnStyles } from "../../config/rn-styles";
 import PDFReader from 'rn-pdf-reader-js';
-import { RnImageProps } from "src/types";
+import { RnImageProps } from "../../types";
 
 interface attachmentURI {
     uri: string
