@@ -10,17 +10,16 @@ import {
 } from "react-native";
 
 import { EdgeInsets, SafeAreaInsetsContext, SafeAreaProvider } from "react-native-safe-area-context";
-import { strings } from "../../config/strings";
+import { rnStrings } from "../../config/rn-strings";
 import { RnCheckbox } from "../checkbox";
 import { RnIcon } from "../icon";;
 import InnSearchComponent from "../search";
 import { RnMultiSelectProps, RnMutliSelectOption } from "src/types";
-import cssConstants from "src/config/css-constants";
+import rnConstants from "src/config/rn-constants";
 import { RnView } from "../view";
 import { RnText } from "../text";
-import { formStyles } from "src/config/styles";
+import { formStyles } from "src/config/rn-styles";
 import { RnButton } from "../button";
-import colors from "src/config/colors";
 
 interface State {
     data: {
@@ -166,7 +165,7 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
                     style={
                         [
                             {
-                                paddingHorizontal: cssConstants.DEFAULT_PADDING, paddingVertical: 7
+                                paddingHorizontal: rnConstants.DEFAULT_PADDING, paddingVertical: 7
                             }
                         ]}
                 >
@@ -201,14 +200,14 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
                             </RnView>
                             {
                                 this.props.customOptionRender ? this.props.customOptionRender(item, index) :
-                                    <RnText paddingVertical={cssConstants.DEFAULT_PADDING / 2}
+                                    <RnText paddingVertical={rnConstants.DEFAULT_PADDING / 2}
                                         style={[
                                             {
                                                 flex: 1,
-                                                fontSize: cssConstants.MEDIUM_FONT_SIZE,
+                                                fontSize: rnConstants.MEDIUM_FONT_SIZE,
                                             },
 
-                                            (item.selected && !item.isLabel) ? { color: cssConstants.PRIMARY_COLOR } : { color: cssConstants.TEXT_COLOR }
+                                            (item.selected && !item.isLabel) ? { color: rnConstants.PRIMARY_COLOR } : { color: rnConstants.TEXT_COLOR }
                                         ]}
                                     >
                                         {item[displayKey]}
@@ -225,7 +224,7 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
     renderList() {
         return (
             <FlatList
-                style={{ marginTop: cssConstants.DEFAULT_MARGIN }}
+                style={{ marginTop: rnConstants.DEFAULT_MARGIN }}
                 keyboardShouldPersistTaps="always"
                 nestedScrollEnabled={true}
                 data={this.state.filteredData}
@@ -239,7 +238,7 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
                         alignSelf: 'flex-start',
                         flexDirection: 'row',
                         alignItems: 'center',
-                        paddingHorizontal: cssConstants.DEFAULT_PADDING,
+                        paddingHorizontal: rnConstants.DEFAULT_PADDING,
                     }}>
                         <RnView margin >
                             <RnCheckbox
@@ -285,7 +284,7 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
     renderOptions = () => {
         return (
             <>
-                <RnView style={{ paddingHorizontal: cssConstants.DEFAULT_PADDING }}>
+                <RnView style={{ paddingHorizontal: rnConstants.DEFAULT_PADDING }}>
                     <InnSearchComponent
                         searchObject={this.state.data}
                         keyFilter={["name"]}
@@ -300,7 +299,7 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
                     ?
                     <RnView style={{ height: '90%' }}>{this.renderList()}</RnView>
                     :
-                    <RnView style={{ flexDirection: 'row', padding: cssConstants.DEFAULT_PADDING, justifyContent: 'center' }}>
+                    <RnView style={{ flexDirection: 'row', padding: rnConstants.DEFAULT_PADDING, justifyContent: 'center' }}>
                         <RnText >No Data</RnText>
                     </RnView>}
             </>
@@ -313,8 +312,8 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
                     <TouchableOpacity onPress={() => this.setState({ toggle: true })}
                         disabled={this.props.disable || false}
                         style={[this.props.brightBorder ? styles.brightButton : styles.button, this.props.inputBoxStyles, this.props.disable ? formStyles.disabledFieldControl : {}]} >
-                        < RnText ellipsizeMode='tail' numberOfLines={1} style={[styles.buttonText]} > {(this.state.selectedValues && this.state.selectedValues.length > 0) ? this.state.selectedValues.replace(/,/g, ', ') : (this.props.label || strings.SELECT_LABEL)}</RnText >
-                        <RnIcon name='keyboard-arrow-down' color={cssConstants.PRIMARY_COLOR} />
+                        < RnText ellipsizeMode='tail' numberOfLines={1} style={[styles.buttonText]} > {(this.state.selectedValues && this.state.selectedValues.length > 0) ? this.state.selectedValues.replace(/,/g, ', ') : (this.props.label || rnStrings.SELECT_LABEL)}</RnText >
+                        <RnIcon name='keyboard-arrow-down' color={rnConstants.PRIMARY_COLOR} />
                     </TouchableOpacity >
                     {
                         this.state.toggle &&
@@ -328,12 +327,12 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
                             <SafeAreaProvider>
                                 <SafeAreaInsetsContext.Consumer>
                                     {(insets) =>
-                                        <RnView style={{ height: (insets as EdgeInsets).top, backgroundColor: cssConstants.PRIMARY_COLOR }} />
+                                        <RnView style={{ height: (insets as EdgeInsets).top, backgroundColor: rnConstants.PRIMARY_COLOR }} />
                                     }
                                 </SafeAreaInsetsContext.Consumer>
                                 <RnView full>
-                                    <TouchableOpacity style={{ flexDirection: 'row', marginBottom: cssConstants.DEFAULT_MARGIN }} onPress={() => this.setSelectedAndClose()}>
-                                        <RnButton text={strings.BACK} transparent onPress={() => this.setSelectedAndClose()} iconLeft={<RnIcon name='chevron-left' size={cssConstants.LARGE_FONT_SIZE} color={cssConstants.TEXT_COLOR} />}></RnButton>
+                                    <TouchableOpacity style={{ flexDirection: 'row', marginBottom: rnConstants.DEFAULT_MARGIN }} onPress={() => this.setSelectedAndClose()}>
+                                        <RnButton text={rnStrings.BACK} transparent onPress={() => this.setSelectedAndClose()} iconLeft={<RnIcon name='chevron-left' size={rnConstants.LARGE_FONT_SIZE} color={rnConstants.TEXT_COLOR} />}></RnButton>
 
                                     </TouchableOpacity>
                                     {this.renderOptions()}
@@ -354,41 +353,41 @@ const styles = StyleSheet.create({
     button: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: cssConstants.BACKGROUND_COLOR,
-        height: cssConstants.INPUT_HEIGHT,
-        paddingHorizontal: cssConstants.DEFAULT_PADDING,
-        borderRadius: cssConstants.INPUT_BORDER_RADIUS,
-        borderColor: cssConstants.BORDER_COLOR,
+        backgroundColor: rnConstants.BACKGROUND_COLOR,
+        height: rnConstants.INPUT_HEIGHT,
+        paddingHorizontal: rnConstants.DEFAULT_PADDING,
+        borderRadius: rnConstants.INPUT_BORDER_RADIUS,
+        borderColor: rnConstants.BORDER_COLOR,
         borderWidth: 1,
         zIndex: 1,
     },
     brightButton: {
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: cssConstants.BACKGROUND_COLOR,
-        height: cssConstants.INPUT_HEIGHT,
-        paddingHorizontal: cssConstants.DEFAULT_PADDING,
-        borderRadius: cssConstants.INPUT_BORDER_RADIUS,
-        borderColor: cssConstants.SECONDARY_COLOR,
+        backgroundColor: rnConstants.BACKGROUND_COLOR,
+        height: rnConstants.INPUT_HEIGHT,
+        paddingHorizontal: rnConstants.DEFAULT_PADDING,
+        borderRadius: rnConstants.INPUT_BORDER_RADIUS,
+        borderColor: rnConstants.SECONDARY_COLOR,
         borderWidth: 1,
         zIndex: 1,
     },
     buttonText: {
         flex: 1,
-        color: cssConstants.TEXT_COLOR,
+        color: rnConstants.TEXT_COLOR,
         textAlign: 'left',
-        fontSize: cssConstants.BASE_FONT_SIZE
+        fontSize: rnConstants.BASE_FONT_SIZE
     },
     backIcon: {
         fontSize: 20,
-        color: colors.BLACK,
+        color: rnConstants.BLACK_COLOR,
         alignSelf: 'flex-start',
         paddingVertical: 1,
         paddingHorizontal: 3
 
     },
     fieldInput: {
-        fontSize: cssConstants.INPUT_FONT_SIZE,
-        height: cssConstants.INPUT_HEIGHT
+        fontSize: rnConstants.INPUT_FONT_SIZE,
+        height: rnConstants.INPUT_HEIGHT
     },
 })

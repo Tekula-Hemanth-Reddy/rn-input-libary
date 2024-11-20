@@ -1,4 +1,4 @@
-import { Entypo, Feather } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
 import * as React from "react";
 import {
   NativeSyntheticEvent,
@@ -7,9 +7,8 @@ import {
   TextInput,
   TextInputFocusEventData
 } from "react-native";
-import colors from "../../config/colors";
-import cssConstants from "../../config/css-constants";
-import { formStyles } from '../../config/styles';
+import rnConstants from "../../config/rn-constants";
+import { formStyles } from '../../config/rn-styles';
 import { RnIcon } from '../icon';
 import { RnView } from '../view';
 import { RnText } from '../text';
@@ -88,20 +87,20 @@ class RnInput extends React.Component<RnInputProps, State> {
 
     return (
       <>
-        <RnView style={[styles.container, style, this.props.disabled ? formStyles.disabledFieldControl : {}, { borderColor: error ? cssConstants.DANGER_TEXT_COLOR : cssConstants.BORDER_COLOR }]}>
-          {/* { flexDirection: 'row', alignItems: 'center', borderRadius: cssConstants.INPUT_BORDER_RADIUS, backgroundColor: cssConstants.INPUT_BACKGROUND_COLOR, borderWidth: 1, borderColor: isFocused ? cssConstants.PRIMARY_COLOR : cssConstants.BORDER_COLOR, paddingHorizontal: cssConstants.DEFAULT_PADDING } */}
+        <RnView style={[styles.container, style, this.props.disabled ? formStyles.disabledFieldControl : {}, { borderColor: error ? rnConstants.DANGER_TEXT_COLOR : rnConstants.BORDER_COLOR }]}>
+          {/* { flexDirection: 'row', alignItems: 'center', borderRadius: cssConstants.INPUT_BORDER_RADIUS, backgroundColor: cssConstants.BACKGROUND_COLOR, borderWidth: 1, borderColor: isFocused ? cssConstants.PRIMARY_COLOR : cssConstants.BORDER_COLOR, paddingHorizontal: cssConstants.DEFAULT_PADDING } */}
           {/* <InnView style={formStyles.fieldInput}> */}
           {
-            this.props.icon ? <RnView style={{ marginHorizontal: cssConstants.DEFAULT_MARGIN / 2 }}><RnIcon name={icon} color={this.props.iconColor ? this.props.iconColor : cssConstants.TEXT_COLOR} /></RnView> : null
+            this.props.icon ? <RnView style={{ marginHorizontal: rnConstants.DEFAULT_MARGIN / 2 }}><RnIcon name={icon} color={this.props.iconColor ? this.props.iconColor : rnConstants.TEXT_COLOR} /></RnView> : null
           }
           {
-            this.props.preText ? <RnView style={{ marginHorizontal: cssConstants.DEFAULT_MARGIN / 2 }}><RnText>{this.props.preText}</RnText></RnView> : null
+            this.props.preText ? <RnView style={{ marginHorizontal: rnConstants.DEFAULT_MARGIN / 2 }}><RnText>{this.props.preText}</RnText></RnView> : null
           }
           <TextInput ref={this.textInputRef}
             multiline={this.props.multiline || false}
             editable={!this.props.disabled}
-            selectionColor={cssConstants.PRIMARY_COLOR}
-            placeholderTextColor={this.props.placeholderTextColor || cssConstants.TEXT_COLOR}
+            selectionColor={rnConstants.PRIMARY_COLOR}
+            placeholderTextColor={this.props.placeholderTextColor || rnConstants.TEXT_COLOR}
             secureTextEntry={this.state.secureText}
             style={styles.textInput}
             onFocus={this.handleFocus}
@@ -115,10 +114,10 @@ class RnInput extends React.Component<RnInputProps, State> {
             }}
           />
           {
-            this.props.eyeIcon ? <RnView style={{ position: 'absolute', right: 10 }}><Feather active name={this.state.secureText ? "eye" : "eye-off"} onPress={showPassword} style={{ color: colors.NEUTRAL.NEUTRAL_300 }} size={20} /></RnView> : null
+            this.props.eyeIcon ? <RnView style={{ position: 'absolute', right: 10 }}><Feather active name={this.state.secureText ? "eye" : "eye-off"} onPress={showPassword} style={{ color: rnConstants.MEDIUM_NEUTRAL_COLOR }} size={20} /></RnView> : null
           }
           {
-            this.props.swapIcon ? <RnView style={{ position: 'absolute', right: 10 }}><RnIcon name={"swap-vert"} color={colors.NEUTRAL.NEUTRAL_70} /></RnView> : null
+            this.props.swapIcon ? <RnView style={{ position: 'absolute', right: 10 }}><RnIcon name={"swap-vert"} color={rnConstants.MEDIUM_NEUTRAL_COLOR} /></RnView> : null
           }
           {/* </InnView> */}
         </RnView>
@@ -131,13 +130,13 @@ class RnInput extends React.Component<RnInputProps, State> {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: cssConstants.BACKGROUND_COLOR,
-    height: cssConstants.INPUT_HEIGHT,
-    paddingHorizontal: cssConstants.DEFAULT_PADDING,
-    borderRadius: cssConstants.INPUT_BORDER_RADIUS * 2,
+    backgroundColor: rnConstants.BACKGROUND_COLOR,
+    height: rnConstants.INPUT_HEIGHT,
+    paddingHorizontal: rnConstants.DEFAULT_PADDING,
+    borderRadius: rnConstants.INPUT_BORDER_RADIUS * 2,
     borderWidth: 1,
-    fontSize: cssConstants.BASE_FONT_SIZE,
-    color: cssConstants.TEXT_COLOR,
+    fontSize: rnConstants.BASE_FONT_SIZE,
+    color: rnConstants.TEXT_COLOR,
     width: '100%',
     flexDirection: 'row',
     alignItems: 'center',
@@ -151,8 +150,8 @@ const styles = StyleSheet.create({
   errorText: {
     height: 20,
     marginTop: 4,
-    fontSize: cssConstants.SMALL_FONT_SIZE,
-    color: cssConstants.DANGER_TEXT_COLOR,
+    fontSize: rnConstants.SMALL_FONT_SIZE,
+    color: rnConstants.DANGER_TEXT_COLOR,
     ...Platform.select({
       android: {
         paddingLeft: 4,

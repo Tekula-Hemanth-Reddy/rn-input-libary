@@ -1,10 +1,9 @@
 import moment from "moment";
 import React, { Component } from "react";
 import { FlatList, Modal, StyleSheet, TouchableOpacity } from "react-native";
-import colors from "../../config/colors";
-import { convertDateToTZFormat } from "../../config/date-formatter";
-import { default as cssConstants, default as innConstants } from "../../config/css-constants";
-import { formStyles } from "../../config/styles";
+import { convertDateToTZFormat } from "../../config/rn-date-formatter";
+import rnConstants from "../../config/rn-constants";
+import { formStyles } from "../../config/rn-styles";
 import { RnButton } from "../button";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
@@ -41,8 +40,8 @@ const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep
 
 
 export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState> {
-    private primaryColor: string = innConstants.PRIMARY_COLOR
-    private secondaryColor: string = innConstants.TEXT_COLOR
+    private primaryColor: string = rnConstants.PRIMARY_COLOR
+    private secondaryColor: string = rnConstants.TEXT_COLOR
     private viewType = 'dialog'
     private modalPosition = 'center'
     constructor(props: RndatePickerProps | Readonly<RndatePickerProps>) {
@@ -64,7 +63,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
             datePickerState: false,
             showCalendar: false,
             showModal: typeof this.props.showModal == 'boolean' ? this.props.showModal : true,
-            headerColor: !this.props?.showModal ? this.secondaryColor : colors.WHITE,
+            headerColor: !this.props?.showModal ? this.secondaryColor : rnConstants.WHITE_COLOR,
         }
     }
 
@@ -421,32 +420,32 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
             <TouchableOpacity style={[
                 {
                     flex: 1,
-                    height: innConstants.HEADER_HEIGHT,
-                    paddingVertical: innConstants.DEFAULT_PADDING,
-                    marginHorizontal: innConstants.DEFAULT_MARGIN / 5,
+                    height: rnConstants.HEADER_HEIGHT,
+                    paddingVertical: rnConstants.DEFAULT_PADDING,
+                    marginHorizontal: rnConstants.DEFAULT_MARGIN / 5,
                     opacity: this.isDateDisable(parseInt(item || '0')) ? 0.5 : 1,
                 },
                 {
                     ...(
                         isSelected || isToday ?
                             {
-                                borderColor: (isToday || !this.state.selectedOrStartDate) ? cssConstants.PRIMARY_COLOR : cssConstants.TRANSPARENT_COLOR,
+                                borderColor: (isToday || !this.state.selectedOrStartDate) ? rnConstants.PRIMARY_COLOR : rnConstants.TRANSPARENT_COLOR,
                                 borderWidth: (isToday || !this.state.selectedOrStartDate) ? 1 : 0,
                                 ...(isSelected && this.state.selectedOrStartDate ? { backgroundColor: this.primaryColor } : {}),
-                                borderRadius: innConstants.INPUT_BORDER_RADIUS,
+                                borderRadius: rnConstants.INPUT_BORDER_RADIUS,
                             }
                             :
                             pinnedDate.found ?
                                 {
-                                    backgroundColor: pinnedDate.data?.color ? pinnedDate.data.color : innConstants.BACKGROUND_COLOR,
-                                    borderRadius: innConstants.INPUT_BORDER_RADIUS,
+                                    backgroundColor: pinnedDate.data?.color ? pinnedDate.data.color : rnConstants.BACKGROUND_COLOR,
+                                    borderRadius: rnConstants.INPUT_BORDER_RADIUS,
                                 }
                                 :
                                 (this.isDateDisable(parseInt(item || '0')) && item != "") ?
                                     {
 
-                                        backgroundColor: cssConstants.BACKGROUND_COLOR,
-                                        borderRadius: innConstants.INPUT_BORDER_RADIUS,
+                                        backgroundColor: rnConstants.BACKGROUND_COLOR,
+                                        borderRadius: rnConstants.INPUT_BORDER_RADIUS,
                                     }
                                     :
                                     {}
@@ -475,13 +474,13 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                         ?
                         <RnIcon
                             name="circle"
-                            size={innConstants.EXTRA_SMALL_FONT_SIZE}
-                            color={pinnedDate.data?.color && pinnedDate.data.color == colors.WHITE ? innConstants.TEXT_COLOR : colors.WHITE}
+                            size={rnConstants.EXTRA_SMALL_FONT_SIZE}
+                            color={pinnedDate.data?.color && pinnedDate.data.color == rnConstants.WHITE_COLOR ? rnConstants.TEXT_COLOR : rnConstants.WHITE_COLOR}
                         />
                         :
                         <></>
                 }
-                <RnText textAlignCenter style={{ color: this.isDateDisable(parseInt(item || '0')) ? cssConstants.DISABLE_COLOR : (this.checkSelectedDate(parseInt(item || '0')) && this.state.selectedOrStartDate) || pinnedDate.found ? (pinnedDate.found && pinnedDate.data?.color && pinnedDate.data.color == colors.WHITE) ? this.secondaryColor : colors.WHITE : this.secondaryColor }} note>{item}</RnText>
+                <RnText textAlignCenter style={{ color: this.isDateDisable(parseInt(item || '0')) ? rnConstants.DISABLE_COLOR : (this.checkSelectedDate(parseInt(item || '0')) && this.state.selectedOrStartDate) || pinnedDate.found ? (pinnedDate.found && pinnedDate.data?.color && pinnedDate.data.color == rnConstants.WHITE_COLOR) ? this.secondaryColor : rnConstants.WHITE_COLOR : this.secondaryColor }} note>{item}</RnText>
             </TouchableOpacity>
         )
     }
@@ -491,9 +490,9 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
             <TouchableOpacity style={[
                 {
                     flex: 1,
-                    height: innConstants.HEADER_HEIGHT,
-                    paddingVertical: innConstants.DEFAULT_PADDING,
-                    marginHorizontal: innConstants.DEFAULT_MARGIN / 5
+                    height: rnConstants.HEADER_HEIGHT,
+                    paddingVertical: rnConstants.DEFAULT_PADDING,
+                    marginHorizontal: rnConstants.DEFAULT_MARGIN / 5
                 },
                 {
                     ...(
@@ -501,7 +500,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                             {
 
                                 backgroundColor: this.primaryColor,
-                                borderRadius: innConstants.INPUT_BORDER_RADIUS,
+                                borderRadius: rnConstants.INPUT_BORDER_RADIUS,
                             }
                             :
                             {}
@@ -509,7 +508,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                 }]}
                 onPress={() => this.onMonthSelect(index)}
             >
-                <RnText textAlignCenter style={{ color: (this.state.currentSelectedMonth == index) ? colors.WHITE : this.secondaryColor }} note>{item}</RnText>
+                <RnText textAlignCenter style={{ color: (this.state.currentSelectedMonth == index) ? rnConstants.WHITE_COLOR : this.secondaryColor }} note>{item}</RnText>
             </TouchableOpacity>
         )
     }
@@ -519,9 +518,9 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
             <TouchableOpacity style={[
                 {
                     flex: 1,
-                    height: innConstants.HEADER_HEIGHT,
-                    paddingVertical: innConstants.DEFAULT_PADDING,
-                    marginHorizontal: innConstants.DEFAULT_MARGIN / 5
+                    height: rnConstants.HEADER_HEIGHT,
+                    paddingVertical: rnConstants.DEFAULT_PADDING,
+                    marginHorizontal: rnConstants.DEFAULT_MARGIN / 5
                 },
                 {
                     ...(
@@ -529,7 +528,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                             {
 
                                 backgroundColor: this.primaryColor,
-                                borderRadius: innConstants.INPUT_BORDER_RADIUS,
+                                borderRadius: rnConstants.INPUT_BORDER_RADIUS,
                             }
                             :
                             {}
@@ -537,7 +536,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                 }]}
                 onPress={() => this.onYearSelect(item)}
             >
-                <RnText textAlignCenter style={{ color: (this.state.currentSelectedYear == item) ? colors.WHITE : this.secondaryColor }} note>{item}</RnText>
+                <RnText textAlignCenter style={{ color: (this.state.currentSelectedYear == item) ? rnConstants.WHITE_COLOR : this.secondaryColor }} note>{item}</RnText>
             </TouchableOpacity>
         )
     }
@@ -547,7 +546,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
         description: string
     }) {
         return (
-            <RnView style={{ marginLeft: innConstants.DEFAULT_MARGIN }}>
+            <RnView style={{ marginLeft: rnConstants.DEFAULT_MARGIN }}>
                 <RnText ellipsizeMode="tail" numberOfLines={1}>
                     {event.title}
                 </RnText>
@@ -568,10 +567,10 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                 style={{
                     height: 1,
                     width: "95%",
-                    backgroundColor: innConstants.TEXT_COLOR,
+                    backgroundColor: rnConstants.TEXT_COLOR,
                     opacity: 0.5,
-                    marginVertical: innConstants.DEFAULT_MARGIN / 2,
-                    marginHorizontal: innConstants.DEFAULT_MARGIN
+                    marginVertical: rnConstants.DEFAULT_MARGIN / 2,
+                    marginHorizontal: rnConstants.DEFAULT_MARGIN
                 }}
             />
         );
@@ -592,7 +591,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
             case VIEW_TYPE.MONTH:
             case VIEW_TYPE.MONTH_PICKER:
                 return (
-                    <RnView style={{ marginBottom: innConstants.DEFAULT_MARGIN / 2 }}>
+                    <RnView style={{ marginBottom: rnConstants.DEFAULT_MARGIN / 2 }}>
                         <RnText textAlignCenter style={{ color: this.primaryColor }}>Choose Month</RnText>
                     </RnView>
                 )
@@ -601,7 +600,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
 
             case VIEW_TYPE.YEAR:
                 return (
-                    <RnView style={{ marginBottom: innConstants.DEFAULT_MARGIN / 2, flexDirection: 'row', justifyContent: 'center' }}>
+                    <RnView style={{ marginBottom: rnConstants.DEFAULT_MARGIN / 2, flexDirection: 'row', justifyContent: 'center' }}>
                         <RnButton transparent
                             onPress={() => {
                                 this.setState({
@@ -610,7 +609,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                             }}
                             iconLeft={<RnIcon
                                 name="chevron-left"
-                                size={innConstants.MEDIUM_FONT_SIZE}
+                                size={rnConstants.MEDIUM_FONT_SIZE}
                                 color={this.primaryColor}
 
                             />}></RnButton>
@@ -623,7 +622,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                             }}
                             iconLeft={<RnIcon
                                 name="chevron-right"
-                                size={innConstants.MEDIUM_FONT_SIZE}
+                                size={rnConstants.MEDIUM_FONT_SIZE}
                                 color={this.primaryColor}
 
                             />}></RnButton>
@@ -634,7 +633,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
             case VIEW_TYPE.DATE:
             default:
                 return (
-                    <RnView style={{ marginBottom: innConstants.DEFAULT_MARGIN / 2 }}>
+                    <RnView style={{ marginBottom: rnConstants.DEFAULT_MARGIN / 2 }}>
                         <FlatList
                             data={['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat']}
                             numColumns={7}
@@ -658,7 +657,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                         <FlatList
                             data={this.props.pinnedDates[this.state.selectedPinnedDate]?.events}
                             initialNumToRender={50}
-                            style={{ paddingHorizontal: innConstants.DEFAULT_PADDING / 2 }}
+                            style={{ paddingHorizontal: rnConstants.DEFAULT_PADDING / 2 }}
                             ItemSeparatorComponent={this.flatListItemSeparator}
                             ListHeaderComponent={this.flatListHeader.bind(this)}
                             renderItem={({ item, index }) => (
@@ -684,7 +683,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                             data={monthNames}
                             initialNumToRender={50}
                             numColumns={2}
-                            style={{ paddingHorizontal: innConstants.DEFAULT_PADDING / 2 }}
+                            style={{ paddingHorizontal: rnConstants.DEFAULT_PADDING / 2 }}
                             ItemSeparatorComponent={this.flatListItemSeparator}
                             ListHeaderComponent={this.flatListHeader.bind(this)}
                             renderItem={({ item, index }) => (
@@ -709,7 +708,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                             data={this.state.allYears}
                             initialNumToRender={50}
                             numColumns={3}
-                            style={{ paddingHorizontal: innConstants.DEFAULT_PADDING / 2 }}
+                            style={{ paddingHorizontal: rnConstants.DEFAULT_PADDING / 2 }}
                             ItemSeparatorComponent={this.flatListItemSeparator}
                             ListHeaderComponent={this.flatListHeader.bind(this)}
                             renderItem={({ item, index }) => (
@@ -735,7 +734,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                             data={this.state.dates}
                             initialNumToRender={50}
                             numColumns={7}
-                            style={{ paddingHorizontal: innConstants.DEFAULT_PADDING / 2 }}
+                            style={{ paddingHorizontal: rnConstants.DEFAULT_PADDING / 2 }}
                             ItemSeparatorComponent={this.flatListItemSeparator}
                             ListHeaderComponent={this.flatListHeader.bind(this)}
                             renderItem={({ item, index }) => (
@@ -765,7 +764,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                     {
                         this.state.viewType == VIEW_TYPE.PINNED_DATES
                             ?
-                            <TouchableOpacity style={{ marginBottom: innConstants.DEFAULT_MARGIN / 2, flexDirection: 'row' }}
+                            <TouchableOpacity style={{ marginBottom: rnConstants.DEFAULT_MARGIN / 2, flexDirection: 'row' }}
                                 onPress={() => {
                                     this.setState({
                                         viewType: VIEW_TYPE.DATE
@@ -777,7 +776,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                                 ></Icon> */}
                                 <RnIcon
                                     name="chevron-left"
-                                    size={innConstants.MEDIUM_FONT_SIZE}
+                                    size={rnConstants.MEDIUM_FONT_SIZE}
                                     color={this.state.headerColor}
                                 />
                                 <RnText style={{ color: this.state.headerColor }} note>Calendar</RnText>
@@ -791,7 +790,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                                                 onPress={() => this.decrementYear()}
                                                 iconLeft={<RnIcon
                                                     name="chevron-left"
-                                                    size={innConstants.MEDIUM_FONT_SIZE}
+                                                    size={rnConstants.MEDIUM_FONT_SIZE}
                                                     color={this.state.headerColor}
                                                 />}></RnButton>
                                             {/* year */}
@@ -805,7 +804,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                                                 onPress={() => this.incrementYear()}
                                                 iconLeft={<RnIcon
                                                     name="chevron-right"
-                                                    size={innConstants.MEDIUM_FONT_SIZE}
+                                                    size={rnConstants.MEDIUM_FONT_SIZE}
                                                     color={this.state.headerColor}
 
                                                 />}></RnButton>
@@ -822,7 +821,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                                             onPress={() => this.decrementMonth()}
                                             iconLeft={<RnIcon
                                                 name="chevron-left"
-                                                size={innConstants.MEDIUM_FONT_SIZE}
+                                                size={rnConstants.MEDIUM_FONT_SIZE}
                                                 color={this.state.headerColor}
                                             />}></RnButton>
                                         {/* <Icon name="chevron-left" type="Feather"
@@ -840,7 +839,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                                             onPress={() => this.incrementMonth()}
                                             iconLeft={<RnIcon
                                                 name="chevron-right"
-                                                size={innConstants.MEDIUM_FONT_SIZE}
+                                                size={rnConstants.MEDIUM_FONT_SIZE}
                                                 color={this.state.headerColor}
 
                                             />}></RnButton>
@@ -862,7 +861,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                                             onPress={() => this.decrementYear()}
                                             iconLeft={<RnIcon
                                                 name="chevron-left"
-                                                size={innConstants.MEDIUM_FONT_SIZE}
+                                                size={rnConstants.MEDIUM_FONT_SIZE}
                                                 color={this.state.headerColor}
                                             />}></RnButton>
                                         {/* <Icon name="chevron-left" type="Feather"
@@ -880,7 +879,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                                             onPress={() => this.incrementYear()}
                                             iconLeft={<RnIcon
                                                 name="chevron-right"
-                                                size={innConstants.MEDIUM_FONT_SIZE}
+                                                size={rnConstants.MEDIUM_FONT_SIZE}
                                                 color={this.state.headerColor}
 
                                             />}></RnButton>
@@ -940,11 +939,11 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                         {(this.props.dateRange || this.props?.showDateRangeLabel) && <RnText textAlignCenter style={this.props?.dateStyles ?? styles.buttonText}>{this.getFormatedDateValue(this.state.endDate)}</RnText>}
                     </RnView>
                 </RnView>
-                <RnView marginLeft={cssConstants.DEFAULT_MARGIN / 2}>
+                <RnView marginLeft={rnConstants.DEFAULT_MARGIN / 2}>
                     <RnIcon
                         name="date-range"
-                        color={this.props.calendarIconColor ?? cssConstants.LIGHT_TEXT_COLOR}
-                        size={cssConstants.ICON_SIZE}
+                        color={this.props.calendarIconColor ?? rnConstants.LIGHT_TEXT_COLOR}
+                        size={rnConstants.ICON_SIZE}
                     />
                 </RnView>
             </TouchableOpacity>
@@ -984,9 +983,9 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
                         <RnView style={{ width: this.modalPosition == 'end' ? '100%' : '95%' }}>
                             <RnView padding row justifyCenter style={styles.dialogHeader}>
                                 <RnText textAlignCenter style={{ flex: 1, fontSize: 18 }} fontWeight={600}>Calendar</RnText>
-                                <RnButton transparent onPress={() => this.handleDatePickerPress(false)} iconLeft={<RnIcon name="close" size={20} color={innConstants.PRIMARY_COLOR}></RnIcon>}></RnButton>
+                                <RnButton transparent onPress={() => this.handleDatePickerPress(false)} iconLeft={<RnIcon name="close" size={20} color={rnConstants.PRIMARY_COLOR}></RnIcon>}></RnButton>
                             </RnView>
-                            <RnView style={{ backgroundColor: colors.WHITE, borderBottomLeftRadius: cssConstants.BASE_BORDER_RADIUS, borderBottomRightRadius: cssConstants.BASE_BORDER_RADIUS, paddingTop: cssConstants.DEFAULT_PADDING }}>
+                            <RnView style={{ backgroundColor: rnConstants.WHITE_COLOR, borderBottomLeftRadius: rnConstants.BASE_BORDER_RADIUS, borderBottomRightRadius: rnConstants.BASE_BORDER_RADIUS, paddingTop: rnConstants.DEFAULT_PADDING }}>
                                 {this.renderCalendar()}
                             </RnView>
                         </RnView>
@@ -1013,58 +1012,58 @@ const styles = StyleSheet.create({
         flex: 1,
         flexDirection: 'row',
         alignItems: 'center',
-        backgroundColor: cssConstants.BACKGROUND_COLOR,
-        height: cssConstants.INPUT_HEIGHT,
-        paddingHorizontal: cssConstants.DEFAULT_PADDING,
-        borderRadius: cssConstants.INPUT_BORDER_RADIUS,
-        borderColor: cssConstants.BORDER_COLOR,
+        backgroundColor: rnConstants.BACKGROUND_COLOR,
+        height: rnConstants.INPUT_HEIGHT,
+        paddingHorizontal: rnConstants.DEFAULT_PADDING,
+        borderRadius: rnConstants.INPUT_BORDER_RADIUS,
+        borderColor: rnConstants.BORDER_COLOR,
         borderWidth: 1,
         zIndex: 1,
     },
     buttonText: {
-        color: innConstants.LIGHT_TEXT_COLOR,
+        color: rnConstants.LIGHT_TEXT_COLOR,
     },
     calendarBackGround: {
-        backgroundColor: cssConstants.BACKGROUND_COLOR,
+        backgroundColor: rnConstants.BACKGROUND_COLOR,
         elevation: 1,
-        borderRadius: innConstants.BASE_BORDER_RADIUS,
-        margin: innConstants.DEFAULT_MARGIN,
+        borderRadius: rnConstants.BASE_BORDER_RADIUS,
+        margin: rnConstants.DEFAULT_MARGIN,
         marginTop: 0,
         borderWidth: 1,
         //TODO: need to change height which should be dynamic
         height: 380,
-        borderColor: innConstants.BORDER_COLOR,
-        paddingBottom: innConstants.DEFAULT_PADDING
+        borderColor: rnConstants.BORDER_COLOR,
+        paddingBottom: rnConstants.DEFAULT_PADDING
     },
     dayYearStyles: {
         justifyContent: 'space-between',
         flexDirection: 'row',
-        borderTopLeftRadius: innConstants.BASE_BORDER_RADIUS,
-        borderTopRightRadius: innConstants.BASE_BORDER_RADIUS,
-        paddingVertical: innConstants.DEFAULT_PADDING,
-        marginBottom: innConstants.DEFAULT_MARGIN
+        borderTopLeftRadius: rnConstants.BASE_BORDER_RADIUS,
+        borderTopRightRadius: rnConstants.BASE_BORDER_RADIUS,
+        paddingVertical: rnConstants.DEFAULT_PADDING,
+        marginBottom: rnConstants.DEFAULT_MARGIN
     },
     iconStyles: {
-        fontSize: innConstants.MEDIUM_FONT_SIZE,
+        fontSize: rnConstants.MEDIUM_FONT_SIZE,
         display: 'flex',
-        color: colors.WHITE,
-        marginHorizontal: innConstants.DEFAULT_MARGIN
+        color: rnConstants.WHITE_COLOR,
+        marginHorizontal: rnConstants.DEFAULT_MARGIN
     },
     pinnedDatesIconStyles: {
-        fontSize: innConstants.MEDIUM_FONT_SIZE,
-        marginHorizontal: innConstants.DEFAULT_MARGIN / 2,
-        color: colors.WHITE
+        fontSize: rnConstants.MEDIUM_FONT_SIZE,
+        marginHorizontal: rnConstants.DEFAULT_MARGIN / 2,
+        color: rnConstants.WHITE_COLOR
     },
     dialogHeader: {
-        borderTopLeftRadius: cssConstants.BASE_BORDER_RADIUS,
-        borderTopRightRadius: cssConstants.BASE_BORDER_RADIUS,
-        shadowColor: colors.TRANSPARENT,
+        borderTopLeftRadius: rnConstants.BASE_BORDER_RADIUS,
+        borderTopRightRadius: rnConstants.BASE_BORDER_RADIUS,
+        shadowColor: rnConstants.TRANSPARENT_COLOR,
         shadowOpacity: 0.15,
         shadowRadius: 2,
         elevation: 2,
         shadowOffset: { width: 0, height: 1 },
-        borderBottomColor: cssConstants.BORDER_COLOR,
-        backgroundColor: cssConstants.BACKGROUND_COLOR,
+        borderBottomColor: rnConstants.BORDER_COLOR,
+        backgroundColor: rnConstants.BACKGROUND_COLOR,
         borderBottomWidth: 1
     },
     container: {
@@ -1077,24 +1076,24 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     dateRangeText: {
-        marginLeft: cssConstants.DEFAULT_MARGIN,
-        fontSize: cssConstants.SMALL_FONT_SIZE,
-        color: cssConstants.TEXT_COLOR
+        marginLeft: rnConstants.DEFAULT_MARGIN,
+        fontSize: rnConstants.SMALL_FONT_SIZE,
+        color: rnConstants.TEXT_COLOR
     },
     dateRangePickerContainer: {
         borderWidth: 1,
-        borderColor: cssConstants.BORDER_COLOR,
-        borderRadius: cssConstants.INPUT_BORDER_RADIUS,
+        borderColor: rnConstants.BORDER_COLOR,
+        borderRadius: rnConstants.INPUT_BORDER_RADIUS,
         // paddingVertical: cssConstants.DEFAULT_PADDING,
-        paddingHorizontal: cssConstants.DEFAULT_PADDING / 2,
+        paddingHorizontal: rnConstants.DEFAULT_PADDING / 2,
         flexDirection: 'row',
         alignItems: 'center',
         justifyContent: 'space-between',
-        height: cssConstants.INPUT_HEIGHT,
+        height: rnConstants.INPUT_HEIGHT,
     },
     dayButton: {
         backgroundColor: '#F5F5F6',
-        padding: cssConstants.DEFAULT_PADDING,
-        borderRadius: cssConstants.BASE_BORDER_RADIUS
+        padding: rnConstants.DEFAULT_PADDING,
+        borderRadius: rnConstants.BASE_BORDER_RADIUS
     }
 });

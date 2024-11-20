@@ -6,12 +6,11 @@ import {
     TouchableOpacity
 } from "react-native";
 import { createFilter } from "react-native-search-filter";
-import cssConstants from "../../config/css-constants";
+import rnConstants from "../../config/rn-constants";
 import { RnButton } from "../button";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
 import { InnSearchComponentProps } from "../../types";
-import colors from "../../config/colors";
 
 interface InnSearchComponentState {
     showCancel: boolean;
@@ -140,7 +139,7 @@ export default class InnSearchComponent extends React.Component<
                     // active
 
                     name="close"
-                    color={cssConstants.TEXT_COLOR}
+                    color={rnConstants.TEXT_COLOR}
 
                 />}></RnButton>
         ) : null;
@@ -164,7 +163,7 @@ export default class InnSearchComponent extends React.Component<
      * @memberof SearchComponent
      */
     searchIconRenderer() {
-        return <RnIcon name="search" color={colors.NEUTRAL.NEUTRAL_50} />;
+        return <RnIcon name="search" color={rnConstants.NEUTRAL_COLOR} />;
     }
 
     /**
@@ -187,7 +186,7 @@ export default class InnSearchComponent extends React.Component<
                 >
                     {this.searchIconRenderer()}
                     < TextInput
-                        style={{ flex: 1, fontSize: cssConstants.BASE_FONT_SIZE, paddingLeft: cssConstants.DEFAULT_PADDING / 2 }
+                        style={{ flex: 1, fontSize: rnConstants.BASE_FONT_SIZE, paddingLeft: rnConstants.DEFAULT_PADDING / 2 }
                         }
                         placeholder={this.props.title}
                         onFocus={this.handleOnFocusTextInput.bind(this)}
@@ -212,7 +211,7 @@ export default class InnSearchComponent extends React.Component<
 const styles = StyleSheet.create({
     searchBarHeader: {
         backgroundColor: "transparent",
-        height: cssConstants.INPUT_HEIGHT,
+        height: rnConstants.INPUT_HEIGHT,
         flexDirection: "row",
         paddingHorizontal: 0,
         // paddingVertical: metrics.scale(4),
@@ -222,11 +221,11 @@ const styles = StyleSheet.create({
         alignItems: "center",
         borderRadius: 8,
         flexDirection: 'row',
-        height: cssConstants.INPUT_HEIGHT,
+        height: rnConstants.INPUT_HEIGHT,
         borderWidth: 1,
-        borderColor: cssConstants.BORDER_COLOR,
-        backgroundColor: colors.WHITE,
-        paddingHorizontal: cssConstants.DEFAULT_PADDING
+        borderColor: rnConstants.BORDER_COLOR,
+        backgroundColor: rnConstants.WHITE_COLOR,
+        paddingHorizontal: rnConstants.DEFAULT_PADDING
     },
     boxShadow: {
         shadowColor: 'rgba(0, 0, 0, 0.1)',

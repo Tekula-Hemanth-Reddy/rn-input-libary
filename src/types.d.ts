@@ -49,13 +49,10 @@ export interface RnTextProps extends TextProps, DefaultStyleProps {
 export interface RnButtonProps extends TouchableOpacityProps, DefaultStyleProps {
     text?: string;
     textStyles?: TextStyle;
-    // textStyle?: RnTextStyleProp;
     large?: boolean;
     small?: boolean;
     transparent?: boolean;
     outline?: boolean;
-    // type?: 'filled' | 'outline' | 'transparent', // transparent is the priority over themed buttons
-    // height?: 'small' | 'medium' | 'base' | 'large',//
     iconLeft?: JSX.Element
     iconRight?: JSX.Element,
     icon?: JSX.Element;
@@ -75,7 +72,6 @@ export interface RnButtonProps extends TouchableOpacityProps, DefaultStyleProps 
     brightBorder?: boolean,
     isActionDone?: boolean, // this is to avoid multiple clicks
     onPress?: () => void, // onPress by default closes the alertModal. Override it if you want to change the functionality
-    // theme?: 'primary' | 'secondary' | 'warning' | 'default' | 'success' | 'danger' | 'neutral';
 }
 
 export interface RnIconProps extends ViewProps {

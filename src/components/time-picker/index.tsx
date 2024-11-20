@@ -2,9 +2,8 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import moment from "moment";
 import React, { Component } from "react";
 import { Modal, Platform, TouchableOpacity } from "react-native";
-import colors from "../../config/colors";
-import cssConstants from "../../config/css-constants";
-import { formStyles } from "../../config/styles";
+import rnConstants from "../../config/rn-constants";
+import { formStyles } from "../../config/rn-styles";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
 import { RnText } from "../text";
@@ -102,25 +101,25 @@ export class InnTimePicker extends Component<RnTimePickerProps, ITimePickerState
             <RnView style={{ flex: 1 }}>
                 <RnView row>
                     {this.props.label?.length > 0 && <RnText style={formStyles.fieldName}>{this.props.label}</RnText>}
-                    {this.props.required && <RnText style={{ ...formStyles.fieldName, color: cssConstants.DANGER_TEXT_COLOR }}>*</RnText>}
+                    {this.props.required && <RnText style={{ ...formStyles.fieldName, color: rnConstants.DANGER_TEXT_COLOR }}>*</RnText>}
                 </RnView>
                 <TouchableOpacity disabled={this.props.disable}
                     onPress={this.openTimePicker.bind(this)}
                     style={[{
                         ...formStyles.fieldInputContainer,
                         justifyContent: 'space-between',
-                        paddingHorizontal: cssConstants.DEFAULT_PADDING,
+                        paddingHorizontal: rnConstants.DEFAULT_PADDING,
                         backgroundColor: 'white',
-                        borderColor: cssConstants.BORDER_COLOR,
+                        borderColor: rnConstants.BORDER_COLOR,
                         borderWidth: 1,
-                        borderRadius: cssConstants.INPUT_BORDER_RADIUS
+                        borderRadius: rnConstants.INPUT_BORDER_RADIUS
                     }, this.props.inputBoxStyles, this.props.disable ? formStyles.disabledFieldControl : {}]}>
                     <RnText>{moment(this.state.currentTime).format("h:mm A")}</RnText>
-                    <RnIcon name="access-time" size={20} color={this.props?.pickerIconColor ? this.props?.pickerIconColor : cssConstants.PRIMARY_COLOR} />
+                    <RnIcon name="access-time" size={20} color={this.props?.pickerIconColor ? this.props?.pickerIconColor : rnConstants.PRIMARY_COLOR} />
                 </TouchableOpacity>
                 {/* Warning mesagge for form validations */}
                 {((this.props.triggerValidation && this.state.intialTime == "" && this.props.required) ?
-                    <RnText style={{ color: cssConstants.DANGER_TEXT_COLOR, fontSize: cssConstants.SMALL_FONT_SIZE }}>{this.props.label} is required</RnText>
+                    <RnText style={{ color: rnConstants.DANGER_TEXT_COLOR, fontSize: rnConstants.SMALL_FONT_SIZE }}>{this.props.label} is required</RnText>
                     : null)}
                 <Modal
                     animationType="fade"
@@ -131,7 +130,7 @@ export class InnTimePicker extends Component<RnTimePickerProps, ITimePickerState
                     <RnView style={formStyles.tableModalView}>
                         <RnView style={{ ...formStyles.tableModalContent }}>
                             <TouchableOpacity style={{ alignSelf: 'flex-end' }} onPress={() => this.closeTimePicker()}>
-                                <RnIcon name="close" size={20} color={colors.BLACK} />
+                                <RnIcon name="close" size={20} color={rnConstants.BLACK_COLOR} />
                             </TouchableOpacity>
                             <DateTimePicker
                                 mode={'time'}
@@ -146,13 +145,13 @@ export class InnTimePicker extends Component<RnTimePickerProps, ITimePickerState
 
                             />
                             <TouchableOpacity style={{
-                                borderRadius: cssConstants.BASE_BORDER_RADIUS,
-                                padding: cssConstants.DEFAULT_PADDING,
-                                backgroundColor: cssConstants.PRIMARY_COLOR,
+                                borderRadius: rnConstants.BASE_BORDER_RADIUS,
+                                padding: rnConstants.DEFAULT_PADDING,
+                                backgroundColor: rnConstants.PRIMARY_COLOR,
                                 flexDirection: 'row',
                                 justifyContent: 'center'
                             }} onPress={() => this.saveTime()}>
-                                <RnText style={{ color: colors.WHITE }}>OK</RnText>
+                                <RnText style={{ color: rnConstants.WHITE_COLOR }}>OK</RnText>
                             </TouchableOpacity>
                         </RnView>
                     </RnView>

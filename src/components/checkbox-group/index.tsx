@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { StyleSheet, TouchableOpacity, FlatList } from "react-native";
-import { formStyles } from "../../config/styles";
-import cssConstants from "../../config/css-constants";
+import { formStyles } from "../../config/rn-styles";
+import rnConstants from "../../config/rn-constants";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
 import { RnText } from "../text";
@@ -56,7 +56,7 @@ export function RnCheckBoxGroup(props: RnCheckboxGroupProps) {
                 (label && label.length) &&
                 <RnView row>
                     <RnText marginVertical>{label}</RnText>
-                    {required && <RnText style={{ color: cssConstants.DANGER_TEXT_COLOR, fontSize: cssConstants.SMALL_FONT_SIZE }}>*</RnText>}
+                    {required && <RnText style={{ color: rnConstants.DANGER_TEXT_COLOR, fontSize: rnConstants.SMALL_FONT_SIZE }}>*</RnText>}
                 </RnView>
             }
             <FlatList
@@ -74,7 +74,7 @@ export function RnCheckBoxGroup(props: RnCheckboxGroupProps) {
                                 onPress={() => currentValueChange(item)}
                             >
                                 {(item.isSelected) ?
-                                    <RnIcon size={cssConstants.MEDIUM_FONT_SIZE} name="check" color={cssConstants.PRIMARY_COLOR} />
+                                    <RnIcon size={rnConstants.MEDIUM_FONT_SIZE} name="check" color={rnConstants.PRIMARY_COLOR} />
                                     : null
                                 }
                             </TouchableOpacity>
@@ -93,12 +93,12 @@ const styles = StyleSheet.create({
     radioButtonWrapper: {
         width: 26,
         height: 26,
-        borderColor: cssConstants.BORDER_COLOR,
+        borderColor: rnConstants.BORDER_COLOR,
         borderWidth: 1,
         borderRadius: 13,
         display: 'flex',
         justifyContent: 'center',
         alignItems: 'center',
-        margin: cssConstants.DEFAULT_MARGIN,
+        margin: rnConstants.DEFAULT_MARGIN,
     },
 })

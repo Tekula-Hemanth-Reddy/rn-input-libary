@@ -1,8 +1,6 @@
 import React from "react";
 import { TouchableOpacity } from "react-native";
-import colors from "../../config/colors";
-import cssConstants from "../../config/css-constants";
-import { constants } from "src/config/constants";
+import rnConstants from "../../config/rn-constants";
 import { RnView } from "../view";
 import { RnText } from "../text";
 import { RnChipProps } from "src/types";
@@ -25,13 +23,13 @@ export default function RnChip(props: RnChipProps) {
       row
       border
       marginTop
-      marginHorizontal={cssConstants.DEFAULT_MARGIN / 2}
-      padding={cssConstants.DEFAULT_PADDING / 2}
+      marginHorizontal={rnConstants.DEFAULT_MARGIN / 2}
+      padding={rnConstants.DEFAULT_PADDING / 2}
       {...(keyProp ? { keyProp } : {})}
       style={{
         alignSelf: "flex-start",
-        borderRadius: radius || constants.CHIP_RADIUS,
-        backgroundColor: chipColor ? chipColor : colors.PRIMARY.PRIMARY_50,
+        borderRadius: radius || rnConstants.CHIP_RADIUS,
+        backgroundColor: chipColor ? chipColor : rnConstants.LIGHT_PRIMARY_COLOR,
       }}
     >
       {iconLeft ? (
@@ -39,7 +37,7 @@ export default function RnChip(props: RnChipProps) {
           {React.cloneElement(iconLeft, {
             color: iconLeft.props.color
               ? iconLeft.props.color
-              : cssConstants.TEXT_COLOR,
+              : rnConstants.TEXT_COLOR,
           })}
         </TouchableOpacity>
       ) : (
@@ -60,7 +58,7 @@ export default function RnChip(props: RnChipProps) {
           {React.cloneElement(iconRight, {
             color: iconRight.props.color
               ? iconRight.props.color
-              : cssConstants.TEXT_COLOR,
+              : rnConstants.TEXT_COLOR,
           })}
         </TouchableOpacity>
       ) : (

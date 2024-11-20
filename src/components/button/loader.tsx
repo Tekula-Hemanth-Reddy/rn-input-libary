@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { View, StyleSheet, Animated } from 'react-native';
-import colors from '../../config/colors';
+import rnConstants from 'src/config/rn-constants';
 
 interface IButtonLoader {
     numberOfCircles?: number
@@ -22,7 +22,7 @@ const ButtonLoader = ({ numberOfCircles, color, size }: IButtonLoader) => {
             width: size || 7,
             height: size || 7,
             borderRadius: 5,
-            backgroundColor: color || colors.BODY
+            backgroundColor: color || rnConstants.BODY
         },
     });
 

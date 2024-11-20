@@ -1,7 +1,7 @@
 import { MaterialIcons, FontAwesome, FontAwesome5, FontAwesome6, Feather, Entypo, EvilIcons, Ionicons, AntDesign } from '@expo/vector-icons';
 import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
-import cssConstants from "../../config/css-constants";
+import rnConstants from "../../config/rn-constants";
 import { RnView } from '../view';
 import { RnIconProps } from '../../types';
 
@@ -10,10 +10,10 @@ import { RnIconProps } from '../../types';
 // search icons: "https://icons.expo.fyi/"
 
 export function RnIcon({ type, name, color, size, ...iconProps }: RnIconProps) {
-    const IconSize = size || cssConstants.ICON_SIZE;
-    const [iconColor, setIconColor] = useState(color || cssConstants.TEXT_COLOR);
+    const IconSize = size || rnConstants.ICON_SIZE;
+    const [iconColor, setIconColor] = useState(color || rnConstants.TEXT_COLOR);
     useEffect(() => {
-        setIconColor(color || cssConstants.TEXT_COLOR);
+        setIconColor(color || rnConstants.TEXT_COLOR);
     }, [color]);
 
     const getIcon = () => {

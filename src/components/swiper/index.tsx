@@ -1,8 +1,8 @@
 import React, { useRef, useState } from 'react'
 import { Animated, NativeScrollEvent, NativeSyntheticEvent, ScrollView, StyleSheet, Dimensions } from 'react-native'
-import colors from '../../config/colors'
 import { RnView } from '../view'
 import { RnSwiper } from 'src/types'
+import rnConstants from 'src/config/rn-constants'
 
 
 const RnSwiper = ({ children, pagination = true, snapScroll = true }: RnSwiper) => {
@@ -70,7 +70,7 @@ const RnSwiper = ({ children, pagination = true, snapScroll = true }: RnSwiper) 
                             }),
                             backgroundColor: pageAnimation[index].interpolate({
                                 inputRange: [0, 1],
-                                outputRange: [colors.NEUTRAL.NEUTRAL_80, colors.NEUTRAL.NEUTRAL_900],
+                                outputRange: [rnConstants.MEDIUM_NEUTRAL_COLOR, rnConstants.DARK_NEUTRAL_COLOR],
                             }),
                             paddingHorizontal: pageAnimation[index].interpolate({
                                 inputRange: [0, 1],
@@ -89,7 +89,7 @@ const RnSwiper = ({ children, pagination = true, snapScroll = true }: RnSwiper) 
                             }),
                             color: pageAnimation[index].interpolate({
                                 inputRange: [0, 1],
-                                outputRange: [colors.TRANSPARENT, colors.WHITE],
+                                outputRange: [rnConstants.TRANSPARENT_COLOR, rnConstants.WHITE_COLOR],
                             }),
                             maxHeight: pageAnimation[index].interpolate({
                                 inputRange: [0, 1],

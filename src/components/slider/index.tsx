@@ -2,7 +2,7 @@ import React from "react";
 import { StyleSheet, View, PanResponder, Animated, Text } from "react-native";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
 import { RnSliderProps } from "../../types";
-import cssConstants from "../../config/css-constants";
+import rnConstants from "../../config/rn-constants";
 
 // ---------- usage --------------//
 {/* 
@@ -26,8 +26,8 @@ export default function RnSlider(props: RnSliderProps) {
     const maxBoundary = props.maxBoundary;
     const min_initVal = props?.min_initVal || 0;
     const max_initVal = props.max_initVal;
-    const colorNeutral = cssConstants.BORDER_COLOR;
-    const colorHighlight = cssConstants.PRIMARY_COLOR;
+    const colorNeutral = rnConstants.BORDER_COLOR;
+    const colorHighlight = rnConstants.PRIMARY_COLOR;
     // Next line is the position's difference of min slider and max slider
     // To avoid overlap and blocking at the maximum boundary value
     // Keep between 0.10 and 0.40 for best user experience
@@ -396,7 +396,7 @@ const s = StyleSheet.create({
     },
     labelValueText:
     {
-        fontSize: cssConstants.BASE_FONT_SIZE,
+        fontSize: rnConstants.BASE_FONT_SIZE,
     },
 
     sliderContainer:
@@ -442,7 +442,7 @@ const s = StyleSheet.create({
     },
     circle:
     {
-        shadowColor: cssConstants.DISABLE_COLOR,
+        shadowColor: rnConstants.DISABLE_COLOR,
         shadowOffset: { width: 0, height: 2 },
         shadowOpacity: 0.24,
         shadowRadius: 2.8,

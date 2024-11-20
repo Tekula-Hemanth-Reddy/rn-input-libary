@@ -1,7 +1,7 @@
 import { AVPlaybackSource, ResizeMode, Video } from "expo-av";
 import { useEffect, useState } from "react";
 import { Image, ImageResizeMode, ImageSourcePropType, ImageStyle, ImageURISource, Platform, StyleProp, TouchableOpacity, ViewStyle } from "react-native";
-import { commonStyles } from "../../config/styles";
+import { commonStyles } from "../../config/rn-styles";
 import PDFReader from 'rn-pdf-reader-js';
 import { RnImageProps } from "src/types";
 

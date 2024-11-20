@@ -1,15 +1,14 @@
 import React, { Component } from 'react';
 import { FlatList, Modal, SafeAreaView, StyleSheet, TouchableOpacity } from 'react-native';
-import { default as cssConstants, default as innConstants } from '../../config/css-constants';
-import { formStyles } from '../../config/styles';
+import { default as rnConstants, default as innConstants } from '../../config/rn-constants';
+import { formStyles } from '../../config/rn-styles';
 import { RnButton } from '../button';
 import { RnIcon } from '../icon';
 import { RnView } from '../view';
 import InnSearchComponent from '../search';
 import { RnText } from '../text';
 import { RnPickerProps, RnPickerOption } from '../../types';
-import { strings } from 'src/config/strings';
-import colors from 'src/config/colors';
+import { rnStrings } from 'src/config/rn-strings';
 
 interface InnPickerState {
     visible: boolean;
@@ -94,7 +93,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                                     [
                                         styles.text,
                                         (this.state?.selected?.value == item.value)
-                                            ? { color: cssConstants.PRIMARY_COLOR }
+                                            ? { color: rnConstants.PRIMARY_COLOR }
                                             : {}
                                     ]
                                 }
@@ -141,7 +140,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                     <SafeAreaView
                         style={{
                             height: '100%',
-                            backgroundColor: colors.WHITE,
+                            backgroundColor: rnConstants.WHITE_COLOR,
                             paddingBottom: innConstants.DEFAULT_PADDING,
                             paddingHorizontal: innConstants.DEFAULT_PADDING
                         }}
@@ -183,7 +182,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
             <>
                 <RnView row>
                     {(this.props.label?.length > 0 && this.props.showLabel) && <RnText style={formStyles.fieldName}>{this.props.label}</RnText>}
-                    {this.props.required && <RnText style={{ color: cssConstants.DANGER_TEXT_COLOR, marginBottom: cssConstants.DEFAULT_MARGIN / 2 }}>*</RnText>}
+                    {this.props.required && <RnText style={{ color: rnConstants.DANGER_TEXT_COLOR, marginBottom: rnConstants.DEFAULT_MARGIN / 2 }}>*</RnText>}
                 </RnView>
                 {!this.state.showModal ? <RnView full>
                     {this.renderOptions()}
@@ -211,7 +210,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                                 ? this.props.label
                                 : this.props.placeHolder
                                     ? this.props.placeHolder
-                                    : strings.SELECT_LABEL
+                                    : rnStrings.SELECT_LABEL
                             )
                         }</RnText >
                         <RnIcon name='keyboard-arrow-down' color={this.props.arrowColor ? this.props.arrowColor : innConstants.PRIMARY_COLOR} />
@@ -219,7 +218,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
                 }
                 {/* Warning mesagge for form validations */}
                 {((this.props.triggerValidation && this.state.selected == undefined && this.props.required) ?
-                    <RnText style={{ color: cssConstants.DANGER_TEXT_COLOR, fontSize: cssConstants.SMALL_FONT_SIZE }}>{this.props.label} is required</RnText>
+                    <RnText style={{ color: rnConstants.DANGER_TEXT_COLOR, fontSize: rnConstants.SMALL_FONT_SIZE }}>{this.props.label} is required</RnText>
                     : null)}
             </>
         );
@@ -241,7 +240,7 @@ const styles = StyleSheet.create({
     buttonText: {
         flex: 1,
         color: innConstants.TEXT_COLOR,
-        fontSize: cssConstants.BASE_FONT_SIZE
+        fontSize: rnConstants.BASE_FONT_SIZE
     },
     dropdown: {
         width: '100%',
@@ -251,11 +250,11 @@ const styles = StyleSheet.create({
         paddingVertical: innConstants.DEFAULT_PADDING,
     },
     text: {
-        color: cssConstants.LIGHT_TEXT_COLOR
+        color: rnConstants.LIGHT_TEXT_COLOR
     },
     circle: {
-        height: cssConstants.PICKER_CIRCLE_HEIGHT,
-        width: cssConstants.PICKER_CIRCLE_WIDTH,
-        borderRadius: cssConstants.PICKER_BORDER_RADIUS
+        height: rnConstants.PICKER_CIRCLE_HEIGHT,
+        width: rnConstants.PICKER_CIRCLE_WIDTH,
+        borderRadius: rnConstants.PICKER_BORDER_RADIUS
     },
 });
