@@ -171,12 +171,6 @@ export interface RnTimePickerProps {
     pickerIconColor?: string;
 }
 
-export interface InnCardCheckboxProps extends TouchableOpacityProps {
-    renderCheckBox?: JSX.Element,
-    onClick?: Function
-    checkboxStyle?: 'circle' | 'square',
-    isSelected?: boolean
-}
 
 export interface RnCheckboxProps extends TouchableOpacityProps {
     label?: string;
@@ -204,7 +198,7 @@ export interface RnCheckboxGroupProps extends TouchableOpacityProps {
     onChange: Function
 }
 
-export interface InnSearchComponentProps {
+export interface RnSearchComponentProps {
     searchObject?: any[];
     keyFilter?: string[];
     updateState?: Function;
@@ -217,7 +211,7 @@ export interface InnSearchComponentProps {
     hideCancel?: boolean;
 }
 
-export interface InnDatePickerResult {
+export interface RnDatePickerResult {
     startDateString: string,
     startDate: Date,
     endDateString: string,
@@ -297,6 +291,10 @@ export interface RnImageProps {
     style?: StyleProp<ImageStyle> | StyleProp<ViewStyle>,
     resizeMode?: ImageResizeMode | ResizeMode;
     resizeMethod?: boolean;
+}
+
+export interface RnProgressBarProps {
+    progress?: number;
 }
 
 export interface RnSwiper {

@@ -16,7 +16,7 @@ interface ITimePickerState {
     iosCurrentTime: Date,
 }
 
-export class InnTimePicker extends Component<RnTimePickerProps, ITimePickerState> {
+export class RnTimePicker extends Component<RnTimePickerProps, ITimePickerState> {
     constructor(props) {
         super(props);
 

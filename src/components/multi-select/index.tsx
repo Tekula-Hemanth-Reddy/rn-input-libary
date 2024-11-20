@@ -12,7 +12,7 @@ import { EdgeInsets, SafeAreaInsetsContext, SafeAreaProvider } from "react-nativ
 import { rnStrings } from "../../config/rn-strings";
 import { RnCheckbox } from "../checkbox";
 import { RnIcon } from "../icon";;
-import InnSearchComponent from "../search";
+import RnSearchComponent from "../search";
 import { RnMultiSelectProps, RnMutliSelectOption } from "src/types";
 import rnConstants from "src/config/rn-constants";
 import { RnView } from "../view";
@@ -284,7 +284,7 @@ class RnMultiSelect extends React.Component<RnMultiSelectProps, State> {
         return (
             <>
                 <RnView style={{ paddingHorizontal: rnConstants.DEFAULT_PADDING }}>
-                    <InnSearchComponent
+                    <RnSearchComponent
                         searchObject={this.state.data}
                         keyFilter={["name"]}
                         updateState={(data) => {

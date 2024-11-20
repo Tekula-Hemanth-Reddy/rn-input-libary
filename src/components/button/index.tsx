@@ -163,12 +163,12 @@ export function RnButton(props: RnButtonProps) {
                 isActionDone ?
                     <ButtonLoader />
                     : <>
-                        {/* {innButtonLeftIcon} */}
+                        {/* {rnButtonLeftIcon} */}
                         {leftIcon ? React.cloneElement(leftIcon, { color: leftIcon.props.color ? leftIcon.props.color : themeOption.textColor }) : <></>}
                         {icon ? React.cloneElement(icon, { color: icon.props.color ? icon.props.color : themeOption.textColor }) : <></>}
                         {text && <RnText fontWeight={props.textStyle?.fontWeight ? props.textStyle?.fontWeight : 400} {...numberOfLines ? { numberOfLines } : {}} {...maxLinesToView ? { maxLinesToView: maxLinesToView } : {}} style={[{ color: outline ? themeOption.outlineTextColor : themeOption.textColor, fontSize: rnConstants.SMALL_FONT_SIZE }, { ...rnStyles.buttonText, ...(props.textStyle || {}) }]} {...props.textProps}>{text}</RnText>}
                         {props.children}
-                        {/* {innButtonRightIcon} */}
+                        {/* {rnButtonRightIcon} */}
                         {rightIcon ? React.cloneElement(rightIcon, { color: rightIcon.props.color ? rightIcon.props.color : themeOption.textColor }) : <></>}
                     </>
             }

@@ -7,7 +7,7 @@ import { rnStyles } from "src/config/rn-styles";
 
 // ---------- usage --------------//
 {/* 
-    <InnSlider
+    <RnSlider
         minBoundary={0} maxBoundary={99}
         min_initVal={12} max_initVal={88}
         rangeSlider={true}

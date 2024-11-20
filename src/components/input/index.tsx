@@ -86,8 +86,6 @@ class RnInput extends React.Component<RnInputProps, State> {
     return (
       <>
         <RnView style={[rnStyles.inputContainer, style, this.props.disabled ? rnStyles.disabledFieldControl : {}, { borderColor: error ? rnConstants.DANGER_TEXT_COLOR : rnConstants.BORDER_COLOR }]}>
-          {/* { flexDirection: 'row', alignItems: 'center', borderRadius: cssConstants.INPUT_BORDER_RADIUS, backgroundColor: cssConstants.BACKGROUND_COLOR, borderWidth: 1, borderColor: isFocused ? cssConstants.PRIMARY_COLOR : cssConstants.BORDER_COLOR, paddingHorizontal: cssConstants.DEFAULT_PADDING } */}
-          {/* <InnView style={rnStyles.fieldInput}> */}
           {
             this.props.icon ? <RnView style={{ marginHorizontal: rnConstants.DEFAULT_MARGIN / 2 }}><RnIcon name={icon} color={this.props.iconColor ? this.props.iconColor : rnConstants.TEXT_COLOR} /></RnView> : null
           }
@@ -117,7 +115,6 @@ class RnInput extends React.Component<RnInputProps, State> {
           {
             this.props.swapIcon ? <RnView style={{ position: 'absolute', right: 10 }}><RnIcon name={"swap-vert"} color={rnConstants.MEDIUM_NEUTRAL_COLOR} /></RnView> : null
           }
-          {/* </InnView> */}
         </RnView>
         {error ? <RnText fontWeight={500} style={rnStyles.errorText}>{error || ""}</RnText> : <></>}
         {this.state.errorMessage ? <RnText fontWeight={500} style={rnStyles.errorText}>{this.state.errorMessage || ""}</RnText> : <></>}

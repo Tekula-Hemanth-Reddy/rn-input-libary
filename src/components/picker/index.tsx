@@ -5,12 +5,12 @@ import { rnStyles } from '../../config/rn-styles';
 import { RnButton } from '../button';
 import { RnIcon } from '../icon';
 import { RnView } from '../view';
-import InnSearchComponent from '../search';
+import RnSearchComponent from '../search';
 import { RnText } from '../text';
 import { RnPickerProps, RnPickerOption } from '../../types';
 import { rnStrings } from 'src/config/rn-strings';
 
-interface InnPickerState {
+interface RnPickerState {
     visible: boolean;
     pickerData: RnPickerOption[];
     filteredPickerData: RnPickerOption[];
@@ -19,7 +19,7 @@ interface InnPickerState {
     showModal: boolean;
 }
 
-export class InnPicker extends Component<RnPickerProps, InnPickerState> {
+export class RnPicker extends Component<RnPickerProps, RnPickerState> {
 
     view: any
 
@@ -36,7 +36,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
         }
     }
 
-    componentDidUpdate(prevProps: Readonly<RnPickerProps>, prevState: Readonly<InnPickerState>, snapshot?: any): void {
+    componentDidUpdate(prevProps: Readonly<RnPickerProps>, prevState: Readonly<RnPickerState>, snapshot?: any): void {
         if (prevProps.data?.length != this.props.data?.length || prevProps.selectedOption != this.props.selectedOption || JSON.stringify(prevProps.data) != JSON.stringify(this.props.data)) {
             const pickerData = this.getPickerDataWithNoneOption(this.props.data || []);
             this.setState({
@@ -108,7 +108,7 @@ export class InnPicker extends Component<RnPickerProps, InnPickerState> {
     private renderOptions() {
         return <>
             <RnView style={{ marginHorizontal: rnConstants.DEFAULT_MARGIN }}>
-                <InnSearchComponent
+                <RnSearchComponent
                     searchObject={this.state.pickerData}
                     keyFilter={['label']}
                     updateState={(data) => {

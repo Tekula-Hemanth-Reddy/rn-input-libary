@@ -9,22 +9,22 @@ import rnConstants from "../../config/rn-constants";
 import { RnButton } from "../button";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
-import { InnSearchComponentProps } from "../../types";
+import { RnSearchComponentProps } from "../../types";
 import { rnStyles } from "src/config/rn-styles";
 
-interface InnSearchComponentState {
+interface RnSearchComponentState {
     showCancel: boolean;
     lengthOfInputString: number;
     searchText: string;
 }
 
-export default class InnSearchComponent extends React.Component<
-    InnSearchComponentProps,
-    InnSearchComponentState
+export default class RnSearchComponent extends React.Component<
+    RnSearchComponentProps,
+    RnSearchComponentState
 > {
     textInput: any;
 
-    constructor(props: InnSearchComponentProps | Readonly<InnSearchComponentProps>) {
+    constructor(props: RnSearchComponentProps | Readonly<RnSearchComponentProps>) {
         super(props);
         this.state = {
             showCancel: false,
@@ -33,7 +33,7 @@ export default class InnSearchComponent extends React.Component<
         };
     }
 
-    componentDidUpdate(prevProps: Readonly<InnSearchComponentProps>, prevState: Readonly<InnSearchComponentState>, snapshot?: any): void {
+    componentDidUpdate(prevProps: Readonly<RnSearchComponentProps>, prevState: Readonly<RnSearchComponentState>, snapshot?: any): void {
         if (this.props.searchObject !== prevProps.searchObject && !!this.state.searchText) {
             this.handleSearchText(this.state.searchText);
         }
