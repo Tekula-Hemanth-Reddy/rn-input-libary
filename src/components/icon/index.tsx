@@ -1,4 +1,4 @@
-import { MaterialIcons } from '@expo/vector-icons';
+import { MaterialIcons, FontAwesome, FontAwesome5, FontAwesome6, Feather, Entypo, EvilIcons, Ionicons, AntDesign } from '@expo/vector-icons';
 import React, { useEffect, useState } from "react";
 import { StyleSheet } from "react-native";
 import cssConstants from "../../config/css-constants";
@@ -9,15 +9,41 @@ import { RnIconProps } from '../../types';
 
 // search icons: "https://icons.expo.fyi/"
 
-export function RnIcon({ name, color, size, ...iconProps }: RnIconProps) {
+export function RnIcon({ type, name, color, size, ...iconProps }: RnIconProps) {
     const IconSize = size || cssConstants.ICON_SIZE;
     const [iconColor, setIconColor] = useState(color || cssConstants.TEXT_COLOR);
     useEffect(() => {
         setIconColor(color || cssConstants.TEXT_COLOR);
     }, [color]);
+
+    const getIcon = () => {
+        switch (type) {
+            case 'FontAwesome':
+                return <FontAwesome name={name as any} size={IconSize} color={iconColor} />
+            case 'FontAwesome5':
+                return <FontAwesome5 name={name as any} size={IconSize} color={iconColor} />
+            case 'FontAwesome6':
+                return <FontAwesome6 name={name as any} size={IconSize} color={iconColor} />
+            case 'Feather':
+                return <Feather name={name as any} size={IconSize} color={iconColor} />
+            case 'Entypo':
+                return <Entypo name={name as any} size={IconSize} color={iconColor} />
+            case 'EvilIcons':
+                return <EvilIcons name={name as any} size={IconSize} color={iconColor} />
+            case 'Ionicons':
+                return <Ionicons name={name as any} size={IconSize} color={iconColor} />
+            case 'AntDesign':
+                return <AntDesign name={name as any} size={IconSize} color={iconColor} />
+            case 'MaterialIcons':
+            default:
+                return <MaterialIcons name={name as any} size={IconSize} color={iconColor} />
+        }
+    }
     return (
         <RnView {...iconProps} style={[styles.container, iconProps.style]}>
-            <MaterialIcons name={name as any} size={IconSize} color={iconColor} />
+            {
+                getIcon()
+            }
         </RnView>
     )
 }

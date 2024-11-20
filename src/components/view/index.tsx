@@ -26,7 +26,7 @@ export function RnView({
     marginLeft,
     marginRight,
     border, ...viewProps }: RnViewProps) {
-    return <View {...viewProps} style={[{ backgroundColor: 'transparent' },
+    return <View {...viewProps} style={[commonStyles.background_transperent,
     (row ? commonStyles.row : {}),
     (justifyBetween ? commonStyles.rowSpaceBetween : {}),
     (justifyCenter ? commonStyles.centerAlign : {}),

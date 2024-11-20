@@ -46,7 +46,40 @@ export interface RnTextProps extends TextProps, DefaultStyleProps {
     full?: boolean
 }
 
+export interface RnButtonProps extends TouchableOpacityProps, DefaultStyleProps {
+    text?: string;
+    textStyles?: TextStyle;
+    // textStyle?: RnTextStyleProp;
+    large?: boolean;
+    small?: boolean;
+    transparent?: boolean;
+    outline?: boolean;
+    // type?: 'filled' | 'outline' | 'transparent', // transparent is the priority over themed buttons
+    // height?: 'small' | 'medium' | 'base' | 'large',//
+    iconLeft?: JSX.Element
+    iconRight?: JSX.Element,
+    icon?: JSX.Element;
+    primary?: boolean;
+    secondary?: boolean;
+    warning?: boolean;
+    success?: boolean;
+    danger?: boolean;
+    neutral?: boolean;
+    justifyStart?: boolean;
+    justifyEnd?: boolean,
+    justifyBetween?: boolean,
+    maxLinesToView?: number,
+    numberOfLines?: number,
+    textStyle?: TextProps.style,
+    textProps?: RnTextProps,
+    brightBorder?: boolean,
+    isActionDone?: boolean, // this is to avoid multiple clicks
+    onPress?: () => void, // onPress by default closes the alertModal. Override it if you want to change the functionality
+    // theme?: 'primary' | 'secondary' | 'warning' | 'default' | 'success' | 'danger' | 'neutral';
+}
+
 export interface RnIconProps extends ViewProps {
+    type?: 'MaterialIcons' | "FontAwesome" | "FontAwesome5" | "FontAwesome6" | "Feather" | "Entypo" | "EvilIcons" | "Ionicons" | "AntDesign";
     name: string
     color?: string;
     size?: number;
@@ -141,38 +174,6 @@ export interface RnTimePickerProps {
     triggerValidation?: boolean;
     disable?: boolean
     pickerIconColor?: string;
-}
-
-export interface RnButtonProps extends TouchableOpacityProps, DefaultStyleProps {
-    text?: string;
-    textStyles?: TextStyle;
-    // textStyle?: RnTextStyleProp;
-    large?: boolean;
-    small?: boolean;
-    transparent?: boolean;
-    outline?: boolean;
-    // type?: 'filled' | 'outline' | 'transparent', // transparent is the priority over themed buttons
-    // height?: 'small' | 'medium' | 'base' | 'large',//
-    iconLeft?: JSX.Element
-    iconRight?: JSX.Element,
-    icon?: JSX.Element;
-    primary?: boolean;
-    secondary?: boolean;
-    warning?: boolean;
-    success?: boolean;
-    danger?: boolean;
-    neutral?: boolean;
-    justifyStart?: boolean;
-    justifyEnd?: boolean,
-    justifyBetween?: boolean,
-    maxLinesToView?: number,
-    numberOfLines?: number,
-    textStyle?: TextProps.style,
-    textProps?: RnTextProps,
-    brightBorder?: boolean,
-    isActionDone?: boolean, // this is to avoid multiple clicks
-    onPress?: () => void, // onPress by default closes the alertModal. Override it if you want to change the functionality
-    // theme?: 'primary' | 'secondary' | 'warning' | 'default' | 'success' | 'danger' | 'neutral';
 }
 
 export interface InnCardCheckboxProps extends TouchableOpacityProps {

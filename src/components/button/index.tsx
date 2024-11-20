@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 import { StyleSheet, TouchableOpacity } from "react-native";
 import colors from "../../config/colors";
-import { default as cssConstants, default as innConstants } from "../../config/css-constants";
+import cssConstants from "../../config/css-constants";
 import { RnText } from "../text";
 import { RnButtonProps } from "../../types";
 import ButtonLoader from "./loader";
@@ -9,60 +9,60 @@ import ButtonLoader from "./loader";
 
 const themeOptions = {
     primary: {
-        backgroundColor: innConstants.PRIMARY_COLOR,
+        backgroundColor: cssConstants.PRIMARY_COLOR,
         textColor: cssConstants.WHITE_COLOR,
         outlineTextColor: colors.PRIMARY.PRIMARY_900,
-        borderColor: innConstants.PRIMARY_COLOR,
-        fontSize: innConstants.MEDIUM_FONT_SIZE,
-        padding: innConstants.X_SMALL_PADDING,
+        borderColor: cssConstants.PRIMARY_COLOR,
+        fontSize: cssConstants.MEDIUM_FONT_SIZE,
+        padding: cssConstants.DEFAULT_PADDING,
     },
     secondary: {
-        backgroundColor: innConstants.SECONDARY_COLOR,
+        backgroundColor: cssConstants.SECONDARY_COLOR,
         outlineTextColor: colors.SECONDARY.SECONDARY_900,
         textColor: cssConstants.WHITE_COLOR,
-        borderColor: innConstants.SECONDARY_COLOR,
-        fontSize: innConstants.MEDIUM_FONT_SIZE,
-        padding: innConstants.X_SMALL_PADDING,
+        borderColor: cssConstants.SECONDARY_COLOR,
+        fontSize: cssConstants.MEDIUM_FONT_SIZE,
+        padding: cssConstants.DEFAULT_PADDING,
     },
     warning: {
-        backgroundColor: innConstants.WARNING_BACKGROUND,
+        backgroundColor: cssConstants.WARNING_BACKGROUND,
         textColor: cssConstants.WHITE_COLOR,
         outlineTextColor: colors.PRIMARY.PRIMARY_900,
-        borderColor: innConstants.WARNING_BACKGROUND,
-        fontSize: innConstants.MEDIUM_FONT_SIZE,
-        padding: innConstants.X_SMALL_PADDING,
+        borderColor: cssConstants.WARNING_BACKGROUND,
+        fontSize: cssConstants.MEDIUM_FONT_SIZE,
+        padding: cssConstants.DEFAULT_PADDING,
     },
     default: {
         backgroundColor: '#F8FAFA',
         textColor: cssConstants.TEXT_COLOR,
         outlineTextColor: cssConstants.TEXT_COLOR,
         borderColor: '#E1E3E3',
-        fontSize: innConstants.MEDIUM_FONT_SIZE,
-        padding: innConstants.X_SMALL_PADDING,
+        fontSize: cssConstants.MEDIUM_FONT_SIZE,
+        padding: cssConstants.DEFAULT_PADDING,
     },
     success: {
         backgroundColor: '#5CC870',
         textColor: cssConstants.WHITE_COLOR,
         outlineTextColor: colors.SUCCESS.SUCCESS_900,
         borderColor: '#5CC870',
-        fontSize: innConstants.MEDIUM_FONT_SIZE,
-        padding: innConstants.X_SMALL_PADDING,
+        fontSize: cssConstants.MEDIUM_FONT_SIZE,
+        padding: cssConstants.DEFAULT_PADDING,
     },
     danger: {
         backgroundColor: '#FDEFEE',
         textColor: '#D05656',
         outlineTextColor: colors.DANGER.DANGER_900,
         borderColor: '#D05656',
-        fontSize: innConstants.MEDIUM_FONT_SIZE,
-        padding: innConstants.X_SMALL_PADDING,
+        fontSize: cssConstants.MEDIUM_FONT_SIZE,
+        padding: cssConstants.DEFAULT_PADDING,
     },
     neutral: {
         backgroundColor: colors.SECONDARY.SECONDARY_50,
         textColor: cssConstants.TEXT_COLOR,
         outlineTextColor: colors.NEUTRAL.NEUTRAL_900,
         borderColor: '#E1E3E3',
-        fontSize: innConstants.MEDIUM_FONT_SIZE,
-        padding: innConstants.X_SMALL_PADDING,
+        fontSize: cssConstants.MEDIUM_FONT_SIZE,
+        padding: cssConstants.DEFAULT_PADDING,
     }
 }
 
@@ -132,24 +132,21 @@ export function RnButton(props: RnButtonProps) {
         }
     }, [isSaving.current, isActionDone]);
 
-    // let themeOption = Object.assign({}, themeOptions[theme] || themeOptions.default);
     let themeOption = getTheme(props);
-    // const innButtonLeftIcon = leftIcon || <></>
-    // const innButtonRightIcon = rightIcon || <></>
     if (!outline && !transparent) {
         themeOption.borderColor = themeOption.borderColor
     }
     switch (true) {
         case small:
-            themeOption.fontSize = innConstants.SMALL_FONT_SIZE
-            themeOption.padding = innConstants.XXX_SMALL_PADDING
+            themeOption.fontSize = cssConstants.SMALL_FONT_SIZE
+            themeOption.padding = cssConstants.XXX_SMALL_PADDING
             break;
         case large:
-            themeOption.fontSize = innConstants.LARGE_FONT_SIZE
-            themeOption.padding = innConstants.XX_SMALL_PADDING
+            themeOption.fontSize = cssConstants.LARGE_FONT_SIZE
+            themeOption.padding = cssConstants.XX_SMALL_PADDING
         default:
-            themeOption.fontSize = innConstants.BASE_FONT_SIZE
-            themeOption.padding = innConstants.X_SMALL_PADDING
+            themeOption.fontSize = cssConstants.BASE_FONT_SIZE
+            themeOption.padding = cssConstants.DEFAULT_PADDING
             break;
     }
 
@@ -247,7 +244,7 @@ export function RnButton(props: RnButtonProps) {
 
 const styles = StyleSheet.create({
     container: {
-        borderRadius: innConstants.INPUT_BORDER_RADIUS,
+        borderRadius: cssConstants.INPUT_BORDER_RADIUS,
         justifyContent: 'center',
         alignItems: 'center',
         flexDirection: 'row'

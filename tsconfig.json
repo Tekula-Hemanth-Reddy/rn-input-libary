@@ -5,7 +5,8 @@
       "es6",
       "dom"
     ],
-    "module": "esnext",
+    "module": "CommonJS", // CommonJS is generally a safe option for libraries
+    "declaration": true, // Generates .d.ts declaration files
     "moduleResolution": "node",
     "allowJs": true,
     "jsx": "react-native",
@@ -14,12 +15,15 @@
     "strict": true,
     "noImplicitAny": false,
     "outDir": "./dist",
+    "rootDir": "./src", // Root source files
+    "resolveJsonModule": true, // Allows importing .json files
+    "allowSyntheticDefaultImports": true, // Allows default imports from modules with no default export
     "baseUrl": ".",
     "paths": {
       "react-native": [
         "node_modules/react-native"
       ]
-    }
+    },
   },
   "include": [
     "src/**/*"

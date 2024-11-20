@@ -3,6 +3,9 @@ import colors from "./colors";
 import cssConstants from "./css-constants";
 
 const layout = StyleSheet.create({
+  background_transperent: {
+    backgroundColor: 'transparent'
+  },
   row: {
     display: "flex",
     flexDirection: "row",
