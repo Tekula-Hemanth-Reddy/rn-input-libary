@@ -1,0 +1,78 @@
+declare const colors: {
+    TRANSPARENT: string;
+    BLACK: string;
+    BODY: string;
+    WHITE: string;
+    PRIMARY_ORANGE: string;
+    BLUE: string;
+    PRIMARY: {
+        PRIMARY_50: string;
+        PRIMARY_100: string;
+        PRIMARY_200: string;
+        PRIMARY_300: string;
+        PRIMARY_400: string;
+        PRIMARY_500: string;
+        PRIMARY_600: string;
+        PRIMARY_700: string;
+        PRIMARY_800: string;
+        PRIMARY_900: string;
+    };
+    SECONDARY: {
+        SECONDARY_50: string;
+        SECONDARY_100: string;
+        SECONDARY_200: string;
+        SECONDARY_300: string;
+        SECONDARY_400: string;
+        SECONDARY_500: string;
+        SECONDARY_600: string;
+        SECONDARY_700: string;
+        SECONDARY_800: string;
+        SECONDARY_900: string;
+    };
+    SUCCESS: {
+        SUCCESS_50: string;
+        SUCCESS_100: string;
+        SUCCESS_200: string;
+        SUCCESS_300: string;
+        SUCCESS_400: string;
+        SUCCESS_500: string;
+        SUCCESS_600: string;
+        SUCCESS_700: string;
+        SUCCESS_800: string;
+        SUCCESS_900: string;
+    };
+    DANGER: {
+        DANGER_50: string;
+        DANGER_100: string;
+        DANGER_200: string;
+        DANGER_300: string;
+        DANGER_400: string;
+        DANGER_500: string;
+        DANGER_600: string;
+        DANGER_700: string;
+        DANGER_800: string;
+        DANGER_900: string;
+    };
+    NEUTRAL: {
+        NEUTRAL_0: string;
+        NEUTRAL_10: string;
+        NEUTRAL_20: string;
+        NEUTRAL_30: string;
+        NEUTRAL_40: string;
+        NEUTRAL_50: string;
+        NEUTRAL_60: string;
+        NEUTRAL_70: string;
+        NEUTRAL_80: string;
+        NEUTRAL_90: string;
+        NEUTRAL_100: string;
+        NEUTRAL_200: string;
+        NEUTRAL_300: string;
+        NEUTRAL_400: string;
+        NEUTRAL_500: string;
+        NEUTRAL_600: string;
+        NEUTRAL_700: string;
+        NEUTRAL_800: string;
+        NEUTRAL_900: string;
+    };
+};
+export default colors;
