@@ -215,19 +215,6 @@ const formStyles = StyleSheet.create({
   },
 });
 
-const swiper = StyleSheet.create({
-  page: {
-    minHeight: 8,
-    borderRadius: 50,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-
-  currentPageFont: {
-    fontWeight: "600"
-  },
-});
-
 const slider = StyleSheet.create({
   mainContainer:
   {
@@ -505,7 +492,6 @@ export const rnStyles = StyleSheet.create({
   ...textStyles,
   ...formStyles,
   ...date,
-  ...swiper,
   ...slider,
   ...search,
   ...progressBar,

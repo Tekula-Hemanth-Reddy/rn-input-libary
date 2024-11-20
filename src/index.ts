@@ -9,7 +9,6 @@ export * from "./components/multi-select";
 export * from "./components/media";
 export * from "./components/progress-bar";
 export * from "./components/slider";
-export * from "./components/swiper";
 export * from "./components/checkbox";
 export * from "./components/checkbox-group";
 export * from "./components/chip";

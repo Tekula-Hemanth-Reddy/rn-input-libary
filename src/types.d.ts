@@ -296,10 +296,3 @@ export interface RnImageProps {
 export interface RnProgressBarProps {
     progress?: number;
 }
-
-export interface RnSwiper {
-    children: React.ReactNode
-    height?: number
-    snapScroll?: boolean,
-    pagination?: boolean
-}
