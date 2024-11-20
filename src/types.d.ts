@@ -217,7 +217,7 @@ export interface RnDatePickerResult {
     endDateString: string,
     endDate: Date,
 }
-export interface RndatePickerProps {
+export interface RnDatePickerProps {
     type?: 'dialog' | 'sheet' // default dialog
     alignItem?: 'center' | 'end' // default center
     calendarStyles?: {

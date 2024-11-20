@@ -8,7 +8,7 @@ import { RnButton } from "../button";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
 import { RnText } from "../text";
-import { RndatePickerProps } from "../../types";
+import { RnDatePickerProps } from "../../types";
 
 enum VIEW_TYPE {
     DATE = 'DATE',
@@ -39,12 +39,12 @@ interface RndatePickerState {
 const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"]
 
 
-export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState> {
+export class RnDatePicker extends Component<RnDatePickerProps, RndatePickerState> {
     private primaryColor: string = rnConstants.PRIMARY_COLOR
     private secondaryColor: string = rnConstants.TEXT_COLOR
     private viewType = 'dialog'
     private modalPosition = 'center'
-    constructor(props: RndatePickerProps | Readonly<RndatePickerProps>) {
+    constructor(props: RnDatePickerProps | Readonly<RnDatePickerProps>) {
         super(props)
         this.primaryColor = this.props.primaryColor ? this.props.primaryColor : this.primaryColor
         this.secondaryColor = this.props.secondaryColor ? this.props.secondaryColor : this.secondaryColor
@@ -67,7 +67,7 @@ export class RnDatePicker extends Component<RndatePickerProps, RndatePickerState
         }
     }
 
-    componentDidUpdate(prevProps: Readonly<RndatePickerProps>, prevState: Readonly<RndatePickerState>, snapshot?: any): void {
+    componentDidUpdate(prevProps: Readonly<RnDatePickerProps>, prevState: Readonly<RndatePickerState>, snapshot?: any): void {
         if (prevProps.selectedOrStartDate != this.props.selectedOrStartDate) {
             this.setState({
                 selectedOrStartDate: this.isSelectedDateValid(this.props.selectedOrStartDate) ? this.props.selectedOrStartDate : "",
