@@ -1,9 +1,4 @@
-import { ContentStyle } from "@shopify/flash-list";
-import { ImageStyle, ModalProps, TextInputProps, TextProps, TextStyle, TouchableOpacityProps, ViewProps, ViewStyle } from "react-native";
-import { WORKFLOW_ISSUE_ACTIONS, CommunicationFeatureType, IApprovalWorkflowLevel, IAttachment, IRoster, IUser, LABLE_POSITION, PickerOption, WORK_FLOW_TYPE, MimeTypes } from "../../models";
-import { captureType } from "../../models/enum-types";
-import { IMaterialReceipts } from "../../app/layout/features/(equipment-management)/constants/models";
-import { SkeletonPlaceholderProps } from "./components/skeleton-content/type";
+import { TextInputProps, TextProps, TextStyle, TouchableOpacityProps, ViewProps, ViewStyle } from "react-native";
 
 
 export interface DefaultStyleProps {
