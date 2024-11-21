@@ -30,40 +30,17 @@ var react_1 = __importDefault(require("react"));
 var react_native_1 = require("react-native");
 var rn_constants_1 = __importDefault(require("../../config/rn-constants"));
 var rn_styles_1 = require("../../config/rn-styles");
-var FontWeights;
-(function (FontWeights) {
-    FontWeights["Bold"] = "Bold";
-    FontWeights["SemiBold"] = "SemiBold";
-    FontWeights["Medium"] = "Medium";
-    FontWeights["Regular"] = "Regular";
-    FontWeights["Light"] = "Light";
-    FontWeights["ExtraLight"] = "ExtraLight";
-    FontWeights["Black"] = "Black";
-})(FontWeights || (FontWeights = {}));
-var fontWeights = {
-    100: FontWeights.ExtraLight,
-    200: FontWeights.Light,
-    300: FontWeights.Light,
-    400: FontWeights.Regular,
-    500: FontWeights.Medium,
-    600: FontWeights.SemiBold,
-    700: FontWeights.Bold,
-    800: FontWeights.Bold,
-    900: FontWeights.Black
-};
 function RnText(_a) {
     var fontWeight = _a.fontWeight, italic = _a.italic, note = _a.note, light = _a.light, title = _a.title, padding = _a.padding, paddingHorizontal = _a.paddingHorizontal, paddingTop = _a.paddingTop, paddingBottom = _a.paddingBottom, paddingVertical = _a.paddingVertical, margin = _a.margin, marginHorizontal = _a.marginHorizontal, marginVertical = _a.marginVertical, marginTop = _a.marginTop, marginBottom = _a.marginBottom, alignCenter = _a.textAlignCenter, alignLeft = _a.textAlignLeft, alignRight = _a.textAlignRight, paddingLeft = _a.paddingLeft, paddingRight = _a.paddingRight, marginLeft = _a.marginLeft, marginRight = _a.marginRight, full = _a.full, banner = _a.banner, textProps = __rest(_a, ["fontWeight", "italic", "note", "light", "title", "padding", "paddingHorizontal", "paddingTop", "paddingBottom", "paddingVertical", "margin", "marginHorizontal", "marginVertical", "marginTop", "marginBottom", "textAlignCenter", "textAlignLeft", "textAlignRight", "paddingLeft", "paddingRight", "marginLeft", "marginRight", "full", "banner"]);
     return <react_native_1.Text {...textProps} style={[
             {
-                fontFamily: "Inter-".concat(fontWeights[fontWeight || 400]),
                 fontSize: rn_constants_1.default.BASE_FONT_SIZE,
                 color: rn_constants_1.default.TEXT_COLOR
             },
-            { fontStyle: italic ? 'italic' : 'normal', fontWeight: fontWeight ? "".concat(fontWeight) : 'normal' },
+            { fontStyle: italic ? 'italic' : 'normal', fontWeight: fontWeight ? fontWeight : 'normal' },
             __assign({}, (note ? { fontSize: rn_constants_1.default.SMALL_FONT_SIZE } : {})),
             __assign({}, (light ? { color: rn_constants_1.default.LIGHT_TEXT_COLOR } : {})),
             __assign({}, (title ? { fontSize: rn_constants_1.default.MEDIUM_FONT_SIZE, color: rn_constants_1.default.SECONDARY_COLOR } : {})),
-            __assign({}, (banner ? { fontFamily: "PlusJakartaSans-".concat(fontWeights[fontWeight || 600]) } : {})),
             (alignCenter ? rn_styles_1.rnStyles.textAlignCenter : {}),
             (alignLeft ? rn_styles_1.rnStyles.textAlignLeft : {}),
             (alignRight ? rn_styles_1.rnStyles.textAlignRight : {}),

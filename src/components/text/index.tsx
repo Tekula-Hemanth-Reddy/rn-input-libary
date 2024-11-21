@@ -5,29 +5,6 @@ import rnConstants from '../../config/rn-constants';
 import { rnStyles } from '../../config/rn-styles';
 import { RnTextProps } from '../../types';
 
-
-enum FontWeights {
-    Bold = 'Bold',
-    SemiBold = 'SemiBold',
-    Medium = 'Medium',
-    Regular = 'Regular',
-    Light = 'Light',
-    ExtraLight = 'ExtraLight',
-    Black = 'Black'
-}
-
-const fontWeights = {
-    100: FontWeights.ExtraLight,
-    200: FontWeights.Light,
-    300: FontWeights.Light,
-    400: FontWeights.Regular,
-    500: FontWeights.Medium,
-    600: FontWeights.SemiBold,
-    700: FontWeights.Bold,
-    800: FontWeights.Bold,
-    900: FontWeights.Black
-}
-
 export function RnText({ fontWeight, italic, note, light, title,
     padding,
     paddingHorizontal,
@@ -52,15 +29,13 @@ export function RnText({ fontWeight, italic, note, light, title,
 
     return <NativeText {...textProps} style={[
         {
-            fontFamily: `Inter-${fontWeights[fontWeight || 400]}`,
             fontSize: rnConstants.BASE_FONT_SIZE,
             color: rnConstants.TEXT_COLOR
         }
-        , { fontStyle: italic ? 'italic' : 'normal', fontWeight: fontWeight ? `${fontWeight}` : 'normal' },
+        , { fontStyle: italic ? 'italic' : 'normal', fontWeight: fontWeight ? fontWeight : 'normal' },
         { ...(note ? { fontSize: rnConstants.SMALL_FONT_SIZE } : {}) },
         { ...(light ? { color: rnConstants.LIGHT_TEXT_COLOR } : {}) },
         { ...(title ? { fontSize: rnConstants.MEDIUM_FONT_SIZE, color: rnConstants.SECONDARY_COLOR } : {}) },
-        { ...(banner ? { fontFamily: `PlusJakartaSans-${fontWeights[fontWeight || 600]}` } : {}) },
 
         (alignCenter ? rnStyles.textAlignCenter : {}),
         (alignLeft ? rnStyles.textAlignLeft : {}),

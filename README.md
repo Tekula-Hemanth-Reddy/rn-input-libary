@@ -71,18 +71,18 @@ An Input Library with necessary props to make React Native code easy
 #### Example
 ```
 <RnText
-     fontWeight\={500}
+     fontWeight={600}
      italic
-     note\={false}
+     note={false}
      title
      textAlignCenter
      padding
-     paddingHorizontal\={20}
-     paddingVertical\={15}
+     paddingHorizontal={20}
+     paddingVertical={15}
      margin
-     marginTop\={10}
-     marginLeft\={15}
-     style\={styles.customStyle}
+     marginTop={10}
+     marginLeft={15}
+     style={styles.customStyle}
    \>
      Hello, React Native!
    </RnText\>
@@ -92,7 +92,6 @@ An Input Library with necessary props to make React Native code easy
 
 | Prop | Type | Description | Mandatory | Default Value |
 | --- | --- | --- | --- | --- |
-| fontWeight | 100 | 200 | 300 | 400 |
 | italic | boolean | Applies italic style to the text. | No | FALSE |
 | note | boolean | If true, sets a smaller font size suitable for notes. | No | FALSE |
 | light | boolean | If true, applies a light text color. | No | FALSE |
@@ -126,13 +125,13 @@ An Input Library with necessary props to make React Native code easy
 #### Example
 ```
 <RnButton
-     text\="Submit"
+     text="Submit"
      primary
      large
-     iconLeft\={<Icon name\="check" />}
+     iconLeft={<Icon name="check" />}
      padding
-     marginVertical\={10}
-     onPress\={() \=> console.log('Button Pressed')}
+     marginVertical={10}
+     onPress={() => console.log('Button Pressed')}
    />
 ```
   
@@ -183,11 +182,11 @@ An Input Library with necessary props to make React Native code easy
 #### Example
 ```
 <RnIcon
-     type\="FontAwesome"
-     name\="home"
-     size\={30}
-     color\="blue"
-     style\={{ margin: 10 }}
+     type="FontAwesome"
+     name="home"
+     size={30}
+     color="blue"
+     style={{ margin: 10 }}
    />
 ```
    
@@ -210,12 +209,12 @@ An Input Library with necessary props to make React Native code easy
 #### Example
 ```
 <RnnSearchComponent
-     searchObject\={\[{ name: 'Apple' }, { name: 'Banana' }\]}
-     keyFilter\={\['name'\]}
-     updateState\={(filteredData) \=> console.log(filteredData)}
-     title\="Search fruits"
-     focus\={true}
-     cancelSearch\={() \=> console.log('Search canceled')}
+     searchObject={\[{ name: 'Apple' }, { name: 'Banana' }\]}
+     keyFilter={\['name'\]}
+     updateState={(filteredData) => console.log(filteredData)}
+     title="Search fruits"
+     focus={true}
+     cancelSearch={() => console.log('Search canceled')}
    />
 ```
 
@@ -243,14 +242,14 @@ An Input Library with necessary props to make React Native code easy
 #### Example
 ```
 <RnInput
-     placeholder\="Enter your text"
-     error\="This field is required"
-     eyeIcon\={true}
-     iconColor\="gray"
-     preText\="Pre-text"
-     disabled\={false}
-     multiline\={false}
-     onChangeText\={(text) \=> console.log(text)}
+     placeholder="Enter your text"
+     error="This field is required"
+     eyeIcon={true}
+     iconColor="gray"
+     preText="Pre-text"
+     disabled={false}
+     multiline={false}
+     onChangeText={(text) => console.log(text)}
    />
 ```
 
@@ -277,13 +276,13 @@ An Input Library with necessary props to make React Native code easy
 #### Example
 ```
 <RnPicker
-     label\="Select Option"
-     showLabel\={true}
-     selectedOption\={1}
-     data\={data}
-     onSelect\={(item) \=> console.log(item)}
-     placeHolder\="Please select"
-     required\={true}
+     label="Select Option"
+     showLabel={true}
+     selectedOption={1}
+     data={data}
+     onSelect={(item) => console.log(item)}
+     placeHolder="Please select"
+     required={true}
    />
 ```
 
@@ -332,11 +331,11 @@ An Input Library with necessary props to make React Native code easy
 #### Example
 ```
 <RnMultiSelect
-       label\="Select Options"
-       options\={options}
-       showSelectedTop\={true}
-       onChange\={(selectedOptions) \=> console.log(selectedOptions)}
-       selectedValues\="Option 1, Option 3"
+       label="Select Options"
+       options={options}
+       showSelectedTop={true}
+       onChange={(selectedOptions) => console.log(selectedOptions)}
+       selectedValues="Option 1, Option 3"
      />
 ```
      
@@ -378,14 +377,14 @@ name: string,
 #### Example
 ```
      <RnCheckbox
-       label\="Agree to terms"
-       checked\={checked}
-       onChange\={handleCheckboxChange}
-       required\={true}
-       disabled\={false}
-       size\={24}
-       checkBoxCheckedColor\="green"
-       checkBoxUnCheckedBorderColor\="gray"
+       label="Agree to terms"
+       checked={checked}
+       onChange={handleCheckboxChange}
+       required={true}
+       disabled={false}
+       size={24}
+       checkBoxCheckedColor="green"
+       checkBoxUnCheckedBorderColor="gray"
      />
 ```
 
@@ -417,16 +416,16 @@ name: string,
 #### Example
 ```
 <RnCheckboxGroup
-       value\={selectedValue}
-       label\="Choose your option"
-       fields\={\[
+       value={selectedValue}
+       label="Choose your option"
+       fields={\[
          { label: "Option 1", value: "option1" },
          { label: "Option 2", value: "option2" },
          { label: "Option 3", value: "option3" }
        \]}
-       required\={true}
-       disable\={false}
-       onChange\={handleCheckboxGroupChange}
+       required={true}
+       disable={false}
+       onChange={handleCheckboxGroupChange}
      />
 ```
 
@@ -458,13 +457,13 @@ name: string,
 #### Example
 ```
  <RnChip
-       text\="Sample Chip"
-       heading\="Chip Heading"
-       onDelete\={handleDelete}
-       iconLeft\={<MaterialIcons name\="remove-circle" size\={20} />}
-       iconRight\={<MaterialIcons name\="close" size\={20} />}
-       chipColor\="#E0E0E0"
-       radius\={12}
+       text="Sample Chip"
+       heading="Chip Heading"
+       onDelete={handleDelete}
+       iconLeft={<MaterialIcons name="remove-circle" size={20} />}
+       iconRight={<MaterialIcons name="close" size={20} />}
+       chipColor="#E0E0E0"
+       radius={12}
      />
 ```
 
@@ -492,7 +491,7 @@ name: string,
 
 #### Example
 ```
-<RnProgressBar progress\={0.5} />
+<RnProgressBar progress={0.5} />
 ```
 
 #### Properties
@@ -510,10 +509,10 @@ name: string,
 #### Example
 ```
      <RnSlider
-       minBoundary\={0} maxBoundary\={99}
-       min\_initVal\={12} max\_initVal\={88}
-       rangeSlider\={true}
-       onValueChange\={(data: { minValue: number, maxValue: number }) \=> {
+       minBoundary={0} maxBoundary={99}
+       min\_initVal={12} max\_initVal={88}
+       rangeSlider={true}
+       onValueChange={(data: { minValue: number, maxValue: number }) => {
          console.log("Selected Range:", data)
        }}
      />
@@ -539,18 +538,18 @@ name: string,
 #### Example
 ```
 <RnDatePicker
-       selectedOrStartDate\={selectedDate}
-       onChange\={handleDateChange}
-       disable\={false}
-       dateRange\={false}
-       pinnedDates\={{
+       selectedOrStartDate={selectedDate}
+       onChange={handleDateChange}
+       disable={false}
+       dateRange={false}
+       pinnedDates={{
          "2024-11-25": {
            color: "red",
            events: \[{ title: "Event 1", description: "Description of event 1" }\]
          }
        }}
-       primaryColor\="#FF6347"
-       secondaryColor\="#FFFFFF"
+       primaryColor="#FF6347"
+       secondaryColor="#FFFFFF"
      />
 ```
 
@@ -594,11 +593,11 @@ name: string,
 #### Example
 ```
 <RnTimePicker
-       label\="Select Time"
-       initialTime\={selectedTime}
-       onChange\={handleTimeChange}
-       required\={true}
-       pickerIconColor\="#FF6347"
+       label="Select Time"
+       initialTime={selectedTime}
+       onChange={handleTimeChange}
+       required={true}
+       pickerIconColor="#FF6347"
      />
 ```
 

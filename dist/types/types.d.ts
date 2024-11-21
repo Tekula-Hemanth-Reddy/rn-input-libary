@@ -26,7 +26,7 @@ export interface RnViewProps extends ViewProps, DefaultStyleProps {
     full?: boolean;
 }
 export interface RnTextProps extends TextProps, DefaultStyleProps {
-    fontWeight?: 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | 900;
+    fontWeight?: TextStyle['fontWeight'];
     italic?: boolean;
     note?: boolean;
     light?: boolean;

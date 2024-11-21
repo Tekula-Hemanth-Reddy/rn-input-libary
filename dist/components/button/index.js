@@ -155,7 +155,7 @@ function RnButton(props) {
                         {/* {rnButtonLeftIcon} */}
                         {leftIcon ? react_1.default.cloneElement(leftIcon, { color: leftIcon.props.color ? leftIcon.props.color : themeOption.textColor }) : <></>}
                         {icon ? react_1.default.cloneElement(icon, { color: icon.props.color ? icon.props.color : themeOption.textColor }) : <></>}
-                        {text && <text_1.RnText fontWeight={props.textFontWeight ? props.textFontWeight : 400} {...numberOfLines ? { numberOfLines: numberOfLines } : {}} {...maxLinesToView ? { maxLinesToView: maxLinesToView } : {}} style={[{ color: outline ? themeOption.outlineTextColor : themeOption.textColor, fontSize: rn_constants_1.default.SMALL_FONT_SIZE }, __assign(__assign({}, rn_styles_1.rnStyles.buttonText), (props.textStyle || {}))]} {...props.textProps}>{text}</text_1.RnText>}
+                        {text && <text_1.RnText {...numberOfLines ? { numberOfLines: numberOfLines } : {}} {...maxLinesToView ? { maxLinesToView: maxLinesToView } : {}} style={[{ color: outline ? themeOption.outlineTextColor : themeOption.textColor, fontSize: rn_constants_1.default.SMALL_FONT_SIZE }, __assign(__assign({}, rn_styles_1.rnStyles.buttonText), (props.textStyle || {}))]} {...props.textProps}>{text}</text_1.RnText>}
                         {props.children}
                         {/* {rnButtonRightIcon} */}
                         {rightIcon ? react_1.default.cloneElement(rightIcon, { color: rightIcon.props.color ? rightIcon.props.color : themeOption.textColor }) : <></>}
