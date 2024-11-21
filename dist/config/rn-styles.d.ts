@@ -19,21 +19,21 @@ export declare const rnStyles: {
     rowSpaceBetween: {
         display: "flex";
         flexDirection: "row";
-        width: string;
+        width: "100%";
         justifyContent: "space-between";
         alignItems: "center";
     };
     rowFlexEnd: {
         display: "flex";
         flexDirection: "row";
-        width: string;
+        width: "100%";
         justifyContent: "flex-end";
         alignItems: "center";
     };
     rowFlexStart: {
         display: "flex";
         flexDirection: "row";
-        width: string;
+        width: "100%";
         justifyContent: "flex-start";
         alignItems: "center";
     };
@@ -60,7 +60,7 @@ export declare const rnStyles: {
         fontSize: number;
     };
     inputDropdown: {
-        width: string;
+        width: "100%";
     };
     inputItem: {
         paddingHorizontal: number;
@@ -79,13 +79,13 @@ export declare const rnStyles: {
         overflow: "hidden";
     };
     progressBar: {
-        height: string;
+        height: "100%";
         backgroundColor: string;
     };
     progressText: {
         position: "absolute";
-        top: string;
-        left: string;
+        top: "50%";
+        left: "50%";
         transform: ({
             translateX: number;
             translateY?: undefined;
@@ -128,7 +128,7 @@ export declare const rnStyles: {
         alignItems: "center";
         justifyContent: "center";
         overflow: "hidden";
-        width: string;
+        width: "100%";
         aspectRatio: number;
     };
     mainSliderContainer: {
@@ -141,7 +141,7 @@ export declare const rnStyles: {
     sliderContainer: {
         alignItems: "center";
         justifyContent: "center";
-        height: string;
+        height: "100%";
         flex: number;
         overflow: "visible";
     };
@@ -150,11 +150,11 @@ export declare const rnStyles: {
         justifyContent: "center";
         overflow: "hidden";
         height: number;
-        width: string;
+        width: "80%";
         flexDirection: "row";
         position: "absolute";
-        left: string;
-        top: string;
+        left: "10%";
+        top: "50%";
         marginTop: number;
         borderRadius: number;
     };
@@ -168,14 +168,14 @@ export declare const rnStyles: {
         fontSize: number;
     };
     line: {
-        height: string;
-        width: string;
+        height: "100%";
+        width: "100%";
         position: "absolute";
     };
     draggable: {
         alignItems: "center";
         justifyContent: "center";
-        height: string;
+        height: "100%";
         aspectRatio: number;
         position: "absolute";
         top: number;
@@ -208,15 +208,15 @@ export declare const rnStyles: {
         alignItems: "center";
         justifyContent: "center";
         overflow: "hidden";
-        height: string;
-        width: string;
+        height: "100%";
+        width: "80%";
         paddingTop: number;
     };
     labelContainer: {
         alignItems: "center";
         justifyContent: "center";
         overflow: "hidden";
-        width: string;
+        width: "100%";
         aspectRatio: number;
         position: "absolute";
         bottom: number;
@@ -297,7 +297,7 @@ export declare const rnStyles: {
     };
     fieldInputContainer: {
         height: number;
-        width: string;
+        width: "100%";
         justifyContent: "center";
         alignItems: "center";
         flexDirection: "row";
@@ -308,7 +308,7 @@ export declare const rnStyles: {
         height: number;
         fontSize: number;
         color: string;
-        width: string;
+        width: "100%";
         borderRadius: number;
         borderWidth: number;
         borderColor: string;
@@ -377,7 +377,7 @@ export declare const rnStyles: {
         height: number;
         borderWidth: number;
         borderColor: string;
-        width: string;
+        width: "100%";
     };
     errorText: {
         paddingLeft?: number | undefined;
@@ -409,14 +409,14 @@ export declare const rnStyles: {
         borderWidth: number;
         fontSize: number;
         color: string;
-        width: string;
+        width: "100%";
         flexDirection: "row";
         alignItems: "center";
     };
     dateContainer: {
         flex: number;
-        height: string;
-        width: string;
+        height: "100%";
+        width: "100%";
         backgroundColor: string;
         display: "flex";
         justifyContent: "center";
