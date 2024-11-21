@@ -75,9 +75,8 @@ var getTheme = function (props) {
     }
 };
 function RnButton(props) {
-    var _a, _b;
     var text = props.text, large = props.large, small = props.small, outline = props.outline, transparent = props.transparent, leftIcon = props.iconLeft, rightIcon = props.iconRight, icon = props.icon, maxLinesToView = props.maxLinesToView, numberOfLines = props.numberOfLines, primary = props.primary, secondary = props.secondary, warning = props.warning, success = props.success, danger = props.danger, neutral = props.neutral, padding = props.padding, paddingHorizontal = props.paddingHorizontal, paddingTop = props.paddingTop, paddingBottom = props.paddingBottom, paddingVertical = props.paddingVertical, margin = props.margin, marginHorizontal = props.marginHorizontal, marginVertical = props.marginVertical, marginTop = props.marginTop, paddingLeft = props.paddingLeft, paddingRight = props.paddingRight, marginLeft = props.marginLeft, marginRight = props.marginRight, marginBottom = props.marginBottom, justifyStart = props.justifyStart, justifyEnd = props.justifyEnd, justifyBetween = props.justifyBetween, brightBorder = props.brightBorder, isActionDone = props.isActionDone, textStyles = props.textStyle, touchableOpacityProps = __rest(props, ["text", "large", "small", "outline", "transparent", "iconLeft", "iconRight", "icon", "maxLinesToView", "numberOfLines", "primary", "secondary", "warning", "success", "danger", "neutral", "padding", "paddingHorizontal", "paddingTop", "paddingBottom", "paddingVertical", "margin", "marginHorizontal", "marginVertical", "marginTop", "paddingLeft", "paddingRight", "marginLeft", "marginRight", "marginBottom", "justifyStart", "justifyEnd", "justifyBetween", "brightBorder", "isActionDone", "textStyle"]);
-    var _c = (0, react_1.useState)(false), reRender = _c[0], setReRender = _c[1];
+    var _a = (0, react_1.useState)(false), reRender = _a[0], setReRender = _a[1];
     var isSaving = (0, react_1.useRef)(false);
     (0, react_1.useEffect)(function () {
         if (isActionDone && isSaving.current) {
@@ -156,7 +155,7 @@ function RnButton(props) {
                         {/* {rnButtonLeftIcon} */}
                         {leftIcon ? react_1.default.cloneElement(leftIcon, { color: leftIcon.props.color ? leftIcon.props.color : themeOption.textColor }) : <></>}
                         {icon ? react_1.default.cloneElement(icon, { color: icon.props.color ? icon.props.color : themeOption.textColor }) : <></>}
-                        {text && <text_1.RnText fontWeight={((_a = props.textStyle) === null || _a === void 0 ? void 0 : _a.fontWeight) ? (_b = props.textStyle) === null || _b === void 0 ? void 0 : _b.fontWeight : 400} {...numberOfLines ? { numberOfLines: numberOfLines } : {}} {...maxLinesToView ? { maxLinesToView: maxLinesToView } : {}} style={[{ color: outline ? themeOption.outlineTextColor : themeOption.textColor, fontSize: rn_constants_1.default.SMALL_FONT_SIZE }, __assign(__assign({}, rn_styles_1.rnStyles.buttonText), (props.textStyle || {}))]} {...props.textProps}>{text}</text_1.RnText>}
+                        {text && <text_1.RnText fontWeight={props.textFontWeight ? props.textFontWeight : 400} {...numberOfLines ? { numberOfLines: numberOfLines } : {}} {...maxLinesToView ? { maxLinesToView: maxLinesToView } : {}} style={[{ color: outline ? themeOption.outlineTextColor : themeOption.textColor, fontSize: rn_constants_1.default.SMALL_FONT_SIZE }, __assign(__assign({}, rn_styles_1.rnStyles.buttonText), (props.textStyle || {}))]} {...props.textProps}>{text}</text_1.RnText>}
                         {props.children}
                         {/* {rnButtonRightIcon} */}
                         {rightIcon ? react_1.default.cloneElement(rightIcon, { color: rightIcon.props.color ? rightIcon.props.color : themeOption.textColor }) : <></>}

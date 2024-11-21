@@ -5,9 +5,7 @@ import rnConstants from "../../config/rn-constants";
 import { RnIcon } from "../icon";
 import { RnView } from "../view";
 import { RnText } from "../text";
-import { RnCheckboxGroupProps } from "../../types";
-
-type CheckBox = { label: string, value: string, isSelected: boolean }
+import { RnCheckBox, RnCheckboxGroupProps } from "../../types";
 
 /**
  *
@@ -23,15 +21,15 @@ type CheckBox = { label: string, value: string, isSelected: boolean }
  */
 export function RnCheckBoxGroup(props: RnCheckboxGroupProps) {
     const { value, label, fields, disable = false, required = false, onChange } = props;
-    const [currentValues, setValues] = useState<CheckBox[]>(fields.map((field: CheckBox) => {
+    const [currentValues, setValues] = useState<RnCheckBox[]>(fields.map((field: RnCheckBox) => {
         return {
             label: field.label,
             value: field.value,
             isSelected: field.value == value
         }
     }));
-    let currentValueChange = useCallback((item: CheckBox) => {
-        setValues(fields.map((field: CheckBox) => {
+    let currentValueChange = useCallback((item: RnCheckBox) => {
+        setValues(fields.map((field: RnCheckBox) => {
             return {
                 label: field.label,
                 value: field.value,
@@ -42,7 +40,7 @@ export function RnCheckBoxGroup(props: RnCheckboxGroupProps) {
     }, [fields, onChange])
 
     useEffect(() => {
-        setValues(props.fields.map((field: CheckBox) => {
+        setValues(props.fields.map((field: RnCheckBox) => {
             return {
                 label: field.label,
                 value: field.value,
@@ -62,7 +60,7 @@ export function RnCheckBoxGroup(props: RnCheckboxGroupProps) {
             <FlatList
                 data={currentValues}
                 horizontal={true}
-                renderItem={({ item, index }: { item: CheckBox, index: number }) => {
+                renderItem={({ item, index }: { item: RnCheckBox, index: number }) => {
                     return (
                         <RnView key={index} style={{
                             flexDirection: 'row',
@@ -82,7 +80,7 @@ export function RnCheckBoxGroup(props: RnCheckboxGroupProps) {
                         </RnView>
                     );
                 }}
-                keyExtractor={(item: CheckBox) => item.value}
+                keyExtractor={(item: RnCheckBox) => item.value}
             />
         </RnView>
     );
