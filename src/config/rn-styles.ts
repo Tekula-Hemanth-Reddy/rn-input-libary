@@ -160,7 +160,6 @@ const formStyles = StyleSheet.create({
     borderRadius: rnConstants.INPUT_BORDER_RADIUS,
     borderWidth: 1,
     borderColor: rnConstants.BORDER_COLOR,
-    selectionColor: rnConstants.PRIMARY_COLOR,
     flexDirection: "row",
     alignItems: "center",
     backgroundColor: rnConstants.BACKGROUND_COLOR,

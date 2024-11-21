@@ -312,7 +312,6 @@ export declare const rnStyles: {
         borderRadius: number;
         borderWidth: number;
         borderColor: string;
-        selectionColor: string;
         flexDirection: "row";
         alignItems: "center";
         backgroundColor: string;

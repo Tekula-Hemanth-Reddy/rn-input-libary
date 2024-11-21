@@ -163,7 +163,6 @@ var formStyles = react_native_1.StyleSheet.create({
         borderRadius: rn_constants_1.default.INPUT_BORDER_RADIUS,
         borderWidth: 1,
         borderColor: rn_constants_1.default.BORDER_COLOR,
-        selectionColor: rn_constants_1.default.PRIMARY_COLOR,
         flexDirection: "row",
         alignItems: "center",
         backgroundColor: rn_constants_1.default.BACKGROUND_COLOR,
