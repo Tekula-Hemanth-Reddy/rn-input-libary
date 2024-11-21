@@ -14,6 +14,7 @@
     "skipLibCheck": true,
     "strict": true,
     "noImplicitAny": false,
+    "declarationDir": "./dist/types", // Output declaration files to a specific folder
     "outDir": "./dist",
     "rootDir": "./src", // Root source files
     "resolveJsonModule": true, // Allows importing .json files
