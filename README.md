@@ -31,7 +31,7 @@
      marginLeft={10}
      marginRight={10}
    >
-     <Text>Hello, World!</Text>
+     <Text>Hello, Library!</Text>
    </RnView>
 ```
    
