@@ -1,4 +1,6 @@
-# rn-input-libary
+# rn-input-libary 
+[Click here to discover what I can do!](https://www.npmjs.com/package/rn-input-libary)
+
 'rn-input-library' is a versatile and customizable React Native component library designed to streamline mobile development. It offers a set of reusable, props-driven UI components that can be easily integrated and styled to meet a wide variety of mobile application requirements. The library is lightweight, flexible, and highly extendable, making it a great solution for developers looking to enhance their mobile apps with efficient and scalable UI elements.
 
 ### RnView
